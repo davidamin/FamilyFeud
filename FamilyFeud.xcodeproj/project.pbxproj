@@ -13,7 +13,35 @@
 		7C8731D61BD4169E00013E0B /* FamilyFeud.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7C8731D41BD4169E00013E0B /* FamilyFeud.xcdatamodeld */; };
 		7C8731D81BD4169E00013E0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C8731D71BD4169E00013E0B /* Assets.xcassets */; };
 		7C8731DB1BD4169F00013E0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C8731D91BD4169F00013E0B /* LaunchScreen.storyboard */; };
+		7CBD02751BD589F7001E67CD /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD02741BD589F7001E67CD /* NotificationCenter.framework */; settings = {ASSET_TAGS = (); }; };
+		7CBD02781BD589F8001E67CD /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD02771BD589F8001E67CD /* TodayViewController.swift */; };
+		7CBD027B1BD589F8001E67CD /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CBD02791BD589F8001E67CD /* MainInterface.storyboard */; };
+		7CBD027F1BD589F8001E67CD /* FamilyFeudWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7CBD02721BD589F7001E67CD /* FamilyFeudWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7CBD027D1BD589F8001E67CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7C8731C21BD4169E00013E0B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7CBD02711BD589F7001E67CD;
+			remoteInfo = FamilyFeudWidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7CBD02831BD589F8001E67CD /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7CBD027F1BD589F8001E67CD /* FamilyFeudWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		7C8731CA1BD4169E00013E0B /* FamilyFeud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FamilyFeud.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,6 +52,11 @@
 		7C8731D71BD4169E00013E0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C8731DA1BD4169F00013E0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C8731DC1BD4169F00013E0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CBD02721BD589F7001E67CD /* FamilyFeudWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FamilyFeudWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CBD02741BD589F7001E67CD /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		7CBD02771BD589F8001E67CD /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		7CBD027A1BD589F8001E67CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		7CBD027C1BD589F8001E67CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +67,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7CBD026F1BD589F7001E67CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CBD02751BD589F7001E67CD /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -41,6 +82,8 @@
 			isa = PBXGroup;
 			children = (
 				7C8731CC1BD4169E00013E0B /* FamilyFeud */,
+				7CBD02761BD589F7001E67CD /* FamilyFeudWidget */,
+				7CBD02731BD589F7001E67CD /* Frameworks */,
 				7C8731CB1BD4169E00013E0B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				7C8731CA1BD4169E00013E0B /* FamilyFeud.app */,
+				7CBD02721BD589F7001E67CD /* FamilyFeudWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -67,6 +111,24 @@
 			path = FamilyFeud;
 			sourceTree = "<group>";
 		};
+		7CBD02731BD589F7001E67CD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7CBD02741BD589F7001E67CD /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7CBD02761BD589F7001E67CD /* FamilyFeudWidget */ = {
+			isa = PBXGroup;
+			children = (
+				7CBD02771BD589F8001E67CD /* TodayViewController.swift */,
+				7CBD02791BD589F8001E67CD /* MainInterface.storyboard */,
+				7CBD027C1BD589F8001E67CD /* Info.plist */,
+			);
+			path = FamilyFeudWidget;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,15 +139,34 @@
 				7C8731C61BD4169E00013E0B /* Sources */,
 				7C8731C71BD4169E00013E0B /* Frameworks */,
 				7C8731C81BD4169E00013E0B /* Resources */,
+				7CBD02831BD589F8001E67CD /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7CBD027E1BD589F8001E67CD /* PBXTargetDependency */,
 			);
 			name = FamilyFeud;
 			productName = FamilyFeud;
 			productReference = 7C8731CA1BD4169E00013E0B /* FamilyFeud.app */;
 			productType = "com.apple.product-type.application";
+		};
+		7CBD02711BD589F7001E67CD /* FamilyFeudWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7CBD02801BD589F8001E67CD /* Build configuration list for PBXNativeTarget "FamilyFeudWidget" */;
+			buildPhases = (
+				7CBD026E1BD589F7001E67CD /* Sources */,
+				7CBD026F1BD589F7001E67CD /* Frameworks */,
+				7CBD02701BD589F7001E67CD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FamilyFeudWidget;
+			productName = FamilyFeudWidget;
+			productReference = 7CBD02721BD589F7001E67CD /* FamilyFeudWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -98,6 +179,10 @@
 				TargetAttributes = {
 					7C8731C91BD4169E00013E0B = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 6JE7884YBE;
+					};
+					7CBD02711BD589F7001E67CD = {
+						CreatedOnToolsVersion = 7.0.1;
 						DevelopmentTeam = 6JE7884YBE;
 					};
 				};
@@ -116,6 +201,7 @@
 			projectRoot = "";
 			targets = (
 				7C8731C91BD4169E00013E0B /* FamilyFeud */,
+				7CBD02711BD589F7001E67CD /* FamilyFeudWidget */,
 			);
 		};
 /* End PBXProject section */
@@ -128,6 +214,14 @@
 				7C8731DB1BD4169F00013E0B /* LaunchScreen.storyboard in Resources */,
 				7C8731D81BD4169E00013E0B /* Assets.xcassets in Resources */,
 				7C8731D31BD4169E00013E0B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7CBD02701BD589F7001E67CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CBD027B1BD589F8001E67CD /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,7 +238,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7CBD026E1BD589F7001E67CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CBD02781BD589F8001E67CD /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7CBD027E1BD589F8001E67CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7CBD02711BD589F7001E67CD /* FamilyFeudWidget */;
+			targetProxy = 7CBD027D1BD589F8001E67CD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7C8731D11BD4169E00013E0B /* Main.storyboard */ = {
@@ -161,6 +271,14 @@
 				7C8731DA1BD4169F00013E0B /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		7CBD02791BD589F8001E67CD /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7CBD027A1BD589F8001E67CD /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -255,6 +373,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = FamilyFeud/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.virginia.cs.FamilyFeud;
@@ -269,11 +388,38 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = FamilyFeud/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.virginia.cs.FamilyFeud;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		7CBD02811BD589F8001E67CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = FamilyFeudWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.virginia.cs.FamilyFeud.FamilyFeudWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		7CBD02821BD589F8001E67CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = FamilyFeudWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.virginia.cs.FamilyFeud.FamilyFeudWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -297,6 +443,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		7CBD02801BD589F8001E67CD /* Build configuration list for PBXNativeTarget "FamilyFeudWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7CBD02811BD589F8001E67CD /* Debug */,
+				7CBD02821BD589F8001E67CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 
