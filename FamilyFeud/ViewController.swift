@@ -19,8 +19,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        //nameText.delegate = self
-        //nameBtn.addTarget(self, action: "setName:", forControlEvents: UIControlEvents.TouchUpInside)
+        nameText.delegate = self
+        nameBtn.addTarget(self, action: "setName:", forControlEvents: UIControlEvents.TouchUpInside)
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,9 +28,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    /*@IBAction func setName(sender: UIButton){
-        //nameLabel.text = "Hello " + nameText.text! + ", and welcome to Family Feud!"
-    }*/
+    @IBAction func setName(sender: UIButton){
+        nameLabel.text = "Hello " + nameText.text! + ", and welcome to Family Feud!"
+    }
 
 
 }
