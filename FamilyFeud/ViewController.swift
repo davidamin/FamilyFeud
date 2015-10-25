@@ -32,6 +32,11 @@ class ViewController: UIViewController, UITextFieldDelegate  {
         nameLabel.text = "Hello " + nameText.text! + ", and welcome to Family Feud!"
     }
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+            if let destinationVC = segue.destinationViewController as? QuestionViewController{
+                destinationVC.userStr = nameText.text!
+            }
+    }
 
 }
 

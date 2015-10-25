@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C7A30511BDD9EF100B68309 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7A30501BDD9EF100B68309 /* QuestionViewController.swift */; };
 		7C8731CE1BD4169E00013E0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8731CD1BD4169E00013E0B /* AppDelegate.swift */; };
 		7C8731D01BD4169E00013E0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8731CF1BD4169E00013E0B /* ViewController.swift */; };
 		7C8731D31BD4169E00013E0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C8731D11BD4169E00013E0B /* Main.storyboard */; };
 		7C8731D61BD4169E00013E0B /* FamilyFeud.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7C8731D41BD4169E00013E0B /* FamilyFeud.xcdatamodeld */; };
 		7C8731D81BD4169E00013E0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C8731D71BD4169E00013E0B /* Assets.xcassets */; };
 		7C8731DB1BD4169F00013E0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C8731D91BD4169F00013E0B /* LaunchScreen.storyboard */; };
-		7CBD02751BD589F7001E67CD /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD02741BD589F7001E67CD /* NotificationCenter.framework */; settings = {ASSET_TAGS = (); }; };
+		7CBD02751BD589F7001E67CD /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD02741BD589F7001E67CD /* NotificationCenter.framework */; };
 		7CBD02781BD589F8001E67CD /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD02771BD589F8001E67CD /* TodayViewController.swift */; };
 		7CBD027B1BD589F8001E67CD /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CBD02791BD589F8001E67CD /* MainInterface.storyboard */; };
 		7CBD027F1BD589F8001E67CD /* FamilyFeudWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7CBD02721BD589F7001E67CD /* FamilyFeudWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -44,6 +45,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7C7A30501BDD9EF100B68309 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		7C8731CA1BD4169E00013E0B /* FamilyFeud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FamilyFeud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C8731CD1BD4169E00013E0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C8731CF1BD4169E00013E0B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				7C8731D91BD4169F00013E0B /* LaunchScreen.storyboard */,
 				7C8731DC1BD4169F00013E0B /* Info.plist */,
 				7C8731D41BD4169E00013E0B /* FamilyFeud.xcdatamodeld */,
+				7C7A30501BDD9EF100B68309 /* QuestionViewController.swift */,
 			);
 			path = FamilyFeud;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 			files = (
 				7C8731D01BD4169E00013E0B /* ViewController.swift in Sources */,
 				7C8731D61BD4169E00013E0B /* FamilyFeud.xcdatamodeld in Sources */,
+				7C7A30511BDD9EF100B68309 /* QuestionViewController.swift in Sources */,
 				7C8731CE1BD4169E00013E0B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,6 +410,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.virginia.cs.FamilyFeud.FamilyFeudWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -419,6 +424,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.virginia.cs.FamilyFeud.FamilyFeudWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -451,6 +457,7 @@
 				7CBD02821BD589F8001E67CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
