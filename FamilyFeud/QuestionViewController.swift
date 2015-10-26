@@ -8,16 +8,26 @@
 
 import UIKit
 
-class QuestionViewController: UIViewController {
+class QuestionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var questionLabel: UILabel!
+    
+    @IBOutlet weak var contestantLabel: UILabel!
+    
+    @IBOutlet weak var totalLabel: UILabel!
+    
+    @IBOutlet weak var scoreLabel: UILabel!
     
     @IBOutlet weak var submitBtn: UIButton!
     
+    @IBOutlet weak var answerTable: UITableView!
     
+    var items: [String] = ["We", "Heart", "Taylor", "Swift"]
     var userStr = "User"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        questionLabel.text = userStr
+        contestantLabel.text = "Contestant: " + userStr
+        self.answerTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         // Do any additional setup after loading the view.
     }
 
@@ -26,6 +36,21 @@ class QuestionViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func tableView(answerTable: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.items.count
+    }
+    
+    func tableView(answerTable: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell:UITableViewCell = self.answerTable.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
+        
+        cell.textLabel?.text = self.items[indexPath.row]
+        
+        return cell
+    }
+    
+    func tableView(answerTable: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print("You selected cell #\(indexPath.row)!")
+    	}
 
     /*
     // MARK: - Navigation
