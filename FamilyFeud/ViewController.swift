@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController, UITextFieldDelegate  {
 
@@ -16,11 +17,22 @@ class ViewController: UIViewController, UITextFieldDelegate  {
     
     @IBOutlet weak var nameBtn: UIButton!
     
+    var bahDahDahDaah = AVAudioPlayer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         nameText.delegate = self
         nameBtn.addTarget(self, action: "setName:", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        let themeSong = NSBundle.mainBundle().URLForResource("theme", withExtension: "mp3")
+        do{
+        try	bahDahDahDaah = AVAudioPlayer(contentsOfURL: themeSong!)
+        }catch{
+            
+        }
+        bahDahDahDaah.numberOfLoops = -1
+                bahDahDahDaah.play()
     }
 
     override func didReceiveMemoryWarning() {
