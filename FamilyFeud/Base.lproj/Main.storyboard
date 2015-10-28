@@ -69,9 +69,16 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTU-Hr-9to">
                                 <rect key="frame" x="136" y="518" width="49" height="30"/>
                                 <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submitAnswer:" destination="thY-Sf-AzQ" eventType="touchUpInside" id="YNh-yQ-4cw"/>
+                                </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rQo-uP-zrJ">
                                 <rect key="frame" x="49" y="384" width="222" height="126"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="thY-Sf-AzQ" id="T8F-MR-CUl"/>
+                                    <outlet property="delegate" destination="thY-Sf-AzQ" id="flG-w2-Tbf"/>
+                                </connections>
                             </pickerView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vMY-AC-jNc">
                                 <rect key="frame" x="0.0" y="161" width="320" height="200"/>
@@ -81,13 +88,13 @@
                                     <outlet property="delegate" destination="thY-Sf-AzQ" id="C6r-Eh-ba9"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="101" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s9Y-3j-NZX">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s9Y-3j-NZX">
                                 <rect key="frame" x="128" y="89" width="65" height="55"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="X" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yp7-zJ-EVW">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yp7-zJ-EVW">
                                 <rect key="frame" x="225" y="98" width="68" height="38"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -115,10 +122,12 @@
                     <connections>
                         <outlet property="answerTable" destination="vMY-AC-jNc" id="5zF-V4-C9H"/>
                         <outlet property="contestantLabel" destination="wpc-pL-9AJ" id="zkM-VC-47W"/>
+                        <outlet property="pickerView" destination="rQo-uP-zrJ" id="o7n-BR-bwe"/>
                         <outlet property="questionLabel" destination="xPX-mn-qVz" id="x5O-Rk-OyT"/>
                         <outlet property="scoreLabel" destination="s9Y-3j-NZX" id="Coq-BS-rRj"/>
                         <outlet property="submitBtn" destination="cTU-Hr-9to" id="AD3-yW-LaJ"/>
                         <outlet property="totalLabel" destination="OWx-yT-235" id="YDh-lO-M9g"/>
+                        <outlet property="wrongLabel" destination="yp7-zJ-EVW" id="Qkc-5d-5Ly"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ie-ZW-0Cz" userLabel="First Responder" sceneMemberID="firstResponder"/>
