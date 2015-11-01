@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import CoreData
 
 class ViewController: UIViewController, UITextFieldDelegate  {
 
@@ -19,11 +20,29 @@ class ViewController: UIViewController, UITextFieldDelegate  {
     
     var bahDahDahDaah = AVAudioPlayer()
     
+    var username = NSManagedObject?()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         nameText.delegate = self
         nameBtn.addTarget(self, action: "setName:", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        
+        let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        
+        let newItem = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: managedObjectContext) as? User
+        
+        newItem!.name = "Test Name"
+        newItem!.highScore = 1337
+        
+        do {
+            try managedObjectContext.save()
+            //5
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+        
         
         let themeSong = NSBundle.mainBundle().URLForResource("theme", withExtension: "mp3")
         do{

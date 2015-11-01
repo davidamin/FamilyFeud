@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class QuestionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var questionLabel: UILabel!
@@ -36,6 +37,16 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         contestantLabel.text = "Contestant: " + userStr
+        
+        let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        let fetchRequest = NSFetchRequest(entityName: "User")
+        do {
+            let results =
+            try managedObjectContext.executeFetchRequest(fetchRequest) as! [User]
+            questionLabel.text = String(results[3].highScore)
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
         self.answerTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         value = answers[0]
         // Do any additional setup after loading the view.
@@ -75,7 +86,6 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
         value = answers[row]
     }
     @IBAction func submitAnswer(sender: UIButton){
-        print(items)
         if (!items.contains(value)){
             if(correct.contains(value)){
                 items.append(value)
