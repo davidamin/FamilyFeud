@@ -9,8 +9,9 @@
 import UIKit
 import AVFoundation
 import CoreData
+import CoreLocation
 
-class ViewController: UIViewController, UITextFieldDelegate  {
+class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate  {
 
     @IBOutlet weak var nameLabel: UILabel!
     
@@ -22,11 +23,36 @@ class ViewController: UIViewController, UITextFieldDelegate  {
     
     var username = NSManagedObject?()
     
+    var locationManager:CLLocationManager?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         nameText.delegate = self
         nameBtn.addTarget(self, action: "setName:", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        
+        if CLLocationManager.locationServicesEnabled(){
+            /* Do we have authorization to access location services? */
+            switch CLLocationManager.authorizationStatus(){
+            case .AuthorizedAlways:
+                createLocationManager(startImmediately: true)
+            case .AuthorizedWhenInUse:
+                createLocationManager(startImmediately: true)
+            case .Denied:
+                print("Permission Denied")
+            case .NotDetermined:
+                createLocationManager(startImmediately: false)
+                if let manager = self.locationManager{
+                    manager.requestWhenInUseAuthorization()
+                }
+            case .Restricted:
+                print("restricted")
+            }
+        }else{
+            print("Location off")
+        }
+        
         
         
         let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -53,7 +79,37 @@ class ViewController: UIViewController, UITextFieldDelegate  {
         bahDahDahDaah.numberOfLoops = -1
                 bahDahDahDaah.play()
     }
-
+    
+    func createLocationManager(startImmediately startImmediately: Bool){
+            locationManager = CLLocationManager()
+            if let manager = locationManager{
+                manager.delegate = self
+                if startImmediately{
+                    manager.startUpdatingLocation()
+                }
+            }
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+                        
+                        if locations.count == 0{
+                //handle error here
+                return
+                        }
+                        
+                        let newLocation = locations[0]
+                        
+                        print("Latitude = \(newLocation.coordinate.latitude)")
+                        print("Longitude = \(newLocation.coordinate.longitude)")
+                        //lat.text = String(newLocation.coordinate.latitude)
+                        //lon.text = String(newLocation.coordinate.longitude)
+                        
+    }
+    
+    func locationManager(manager: CLLocationManager,
+                            didFailWithError error: NSError){
+                            print("Location manager failed with error = \(error)")
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
