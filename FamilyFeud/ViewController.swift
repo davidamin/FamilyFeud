@@ -19,6 +19,8 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
     
     @IBOutlet weak var nameBtn: UIButton!
     
+    @IBOutlet weak var locLabel: UILabel!
+    
     var bahDahDahDaah = AVAudioPlayer()
     
     var username = NSManagedObject?()
@@ -40,17 +42,17 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
             case .AuthorizedWhenInUse:
                 createLocationManager(startImmediately: true)
             case .Denied:
-                print("Permission Denied")
+                locLabel.text = "Location Permission Denied"
             case .NotDetermined:
                 createLocationManager(startImmediately: false)
                 if let manager = self.locationManager{
                     manager.requestWhenInUseAuthorization()
                 }
             case .Restricted:
-                print("restricted")
+                locLabel.text = "Location Permission Restricted"
             }
         }else{
-            print("Location off")
+            locLabel.text = "Location is off"
         }
         
         
@@ -101,6 +103,7 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
                         
                         print("Latitude = \(newLocation.coordinate.latitude)")
                         print("Longitude = \(newLocation.coordinate.longitude)")
+                        locLabel.text = "Location: \(newLocation.coordinate.latitude),\(newLocation.coordinate.longitude)"
                         //lat.text = String(newLocation.coordinate.latitude)
                         //lon.text = String(newLocation.coordinate.longitude)
                         

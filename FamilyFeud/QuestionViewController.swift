@@ -43,7 +43,7 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
         do {
             let results =
             try managedObjectContext.executeFetchRequest(fetchRequest) as! [User]
-            questionLabel.text = String(results[3].highScore)
+            questionLabel.text = String(results[0].highScore)
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }
@@ -92,7 +92,7 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
                 score += 20
                 scoreLabel.text = String(score)
             }else{
-                if(wrong < 4){
+                if(wrong < 3){
                 wrong += 1
                 wrongLabel.text = wrongLabel.text! + "X"
                 }
