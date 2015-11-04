@@ -121,7 +121,12 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
     @IBAction func setName(sender: UIButton){
         nameLabel.text = "Hello " + nameText.text! + ", and welcome to Family Feud!"
     }
-
+    
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {   //delegate method
+        textField.resignFirstResponder()
+        return true
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
             if let destinationVC = segue.destinationViewController as? QuestionViewController{
                 destinationVC.userStr = nameText.text!
