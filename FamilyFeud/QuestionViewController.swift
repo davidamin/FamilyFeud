@@ -27,12 +27,13 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var pickerView:UIPickerView!
     
     var items: [String] = []
-    var answers: [String] = ["Answer1", "Answer2", "Answer3", "Answer4"]
+    var answers: [String] = ["Answer1", "Answer2", "Answer3", "Answer4",""]
     var correct: [String] = ["Answer1", "Answer4"]
     var userStr = "User"
     var value = ""
     var score = 0
     var wrong = 0
+    var total = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,13 +41,22 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
         
         let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         let fetchRequest = NSFetchRequest(entityName: "User")
+        let predicate = NSPredicate(format: "name == %@", userStr)
+        
+        fetchRequest.predicate = predicate
         do {
             let results =
             try managedObjectContext.executeFetchRequest(fetchRequest) as! [User]
-            questionLabel.text = String(results[0].highScore)
+            if(results.count > 0){
+                total = Int(results[0].highScore)
+                totalLabel.text = "Total:" + String(total)
+            }else{
+                totalLabel.text = "Total: 0"
+            }
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }
+        
         self.answerTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         value = answers[0]
         // Do any additional setup after loading the view.
@@ -86,16 +96,39 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
         value = answers[row]
     }
     @IBAction func submitAnswer(sender: UIButton){
-        if (!items.contains(value)){
+        if (!items.contains(value) && value != ""){
             if(correct.contains(value)){
                 items.append(value)
                 score += 20
+                total += 20
                 scoreLabel.text = String(score)
+                totalLabel.text = "Total:"  + String(total)
             }else{
-                if(wrong < 3){
+                if(wrong < 2){
                 wrong += 1
                 wrongLabel.text = wrongLabel.text! + "X"
                 }
+            }
+            
+            answers = answers.filter{$0 != value}//This is the only line of Swift code I've ever liked
+            self.pickerView.reloadAllComponents()
+            
+            
+            //This is a terrible way to do things, as we needn't write score every time you submit. But for now...
+            let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+            let fetchRequest = NSFetchRequest(entityName: "User")
+            let predicate = NSPredicate(format: "name == %@", userStr)
+            
+            fetchRequest.predicate = predicate
+            do {
+                let results =
+                try managedObjectContext.executeFetchRequest(fetchRequest) as! [User]
+                if(results.count > 0){
+                    results[0].highScore = NSNumber(integer: total)
+                }
+                try managedObjectContext.save()
+            } catch let error as NSError {
+                print("Could not fetch \(error), \(error.userInfo)")
             }
         }
         self.answerTable.reloadData()

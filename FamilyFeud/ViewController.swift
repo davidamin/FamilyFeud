@@ -21,6 +21,8 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
     
     @IBOutlet weak var locLabel: UILabel!
     
+    var newPlayer = true
+    
     var bahDahDahDaah = AVAudioPlayer()
     
     var username = NSManagedObject?()
@@ -33,7 +35,7 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         nameText.delegate = self
         nameBtn.addTarget(self, action: "setName:", forControlEvents: UIControlEvents.TouchUpInside)
         
-        
+        //Location stuff
         if CLLocationManager.locationServicesEnabled(){
             /* Do we have authorization to access location services? */
             switch CLLocationManager.authorizationStatus(){
@@ -56,8 +58,8 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         }
         
         
-        
-        let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        //Database stuff
+        /*let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         
         let newItem = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: managedObjectContext) as? User
         
@@ -69,9 +71,9 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
             //5
         } catch let error as NSError  {
             print("Could not save \(error), \(error.userInfo)")
-        }
+        }*/
         
-        
+        //Music Stuff
         let themeSong = NSBundle.mainBundle().URLForResource("theme", withExtension: "mp3")
         do{
         try	bahDahDahDaah = AVAudioPlayer(contentsOfURL: themeSong!)
@@ -101,8 +103,8 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
                         
                         let newLocation = locations[0]
                         
-                        print("Latitude = \(newLocation.coordinate.latitude)")
-                        print("Longitude = \(newLocation.coordinate.longitude)")
+                        //print("Latitude = \(newLocation.coordinate.latitude)")
+                        //print("Longitude = \(newLocation.coordinate.longitude)")
                         locLabel.text = "Location: \(newLocation.coordinate.latitude),\(newLocation.coordinate.longitude)"
                         //lat.text = String(newLocation.coordinate.latitude)
                         //lon.text = String(newLocation.coordinate.longitude)
@@ -119,10 +121,42 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
     }
     
     @IBAction func setName(sender: UIButton){
-        nameLabel.text = "Hello " + nameText.text! + ", and welcome to Family Feud!"
+        let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        
+        //Let's check the database for a user with the name we just input
+        let fetchRequest = NSFetchRequest(entityName: "User")
+        let predicate = NSPredicate(format: "name == %@", nameText.text!)
+        
+        fetchRequest.predicate = predicate
+        do {
+            let results =
+            try managedObjectContext.executeFetchRequest(fetchRequest) as! [User]
+            //Do we have such a user?
+            if(results.count > 0){
+                newPlayer = false
+            }
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+        
+        //If we don't, add them and give them a score  of 0
+        if(newPlayer){
+            let newItem = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: managedObjectContext) as? User
+        
+            newItem!.name = nameText.text!
+            newItem!.highScore = 0
+        
+            do {
+                try managedObjectContext.save()
+            } catch let error as NSError  {
+                print("Could not save \(error), \(error.userInfo)")
+            }
+        }
+        
+        //nameLabel.text = "Hello " + nameText.text! + ", and welcome to Family Feud!"
     }
     
-    func textFieldShouldReturn(textField: UITextField!) -> Bool {   //delegate method
+    func textFieldShouldReturn(textField: UITextField) -> Bool {   //delegate method
         textField.resignFirstResponder()
         return true
     }
