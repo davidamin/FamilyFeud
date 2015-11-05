@@ -35,7 +35,7 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var pickerView:UIPickerView!
     
     var items: [String] = []
-    var answers: [Ans] = [Ans(n:"COOKIES", s:3),Ans(n:"DONUT", s:0),Ans(n:"CAKE/CHEESECAKE", s:15), Ans(n:"BURGER", s:0), Ans(n:"ICE CREAM", s:32),Ans(n:"FRENCH FRIES", s:2),Ans(n:"PIZZA", s:14),Ans(n:"RIBS", s:0),Ans(n:"PIE", s:7),Ans(n:"STEAK", s:0),Ans(n:"CANDY/CHOCOLATE", s:13)]
+    var answers: [Ans] = [Ans(n:"COOKIES", s:3), Ans(n:"DONUT", s:0), Ans(n:"CAKE/CHEESECAKE", s:15), Ans(n:"BURGER", s:0), Ans(n:"ICE CREAM", s:32), Ans(n:"FRENCH FRIES", s:2), Ans(n:"PIZZA", s:14), Ans(n:"RIBS", s:0), Ans(n:"PIE", s:7), Ans(n:"STEAK", s:0), Ans(n:"CANDY/CHOCOLATE", s:13)]
     var userStr = "User"
     var value = ""
     var score = 0
@@ -97,8 +97,12 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return answers.count
     }
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return answers[row].name
+    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
+        let pickerLabel = UILabel()
+        let str = NSAttributedString(string: answers[row].name, attributes: [NSFontAttributeName:UIFont(name: "Helvetica", size: 20.0)!,NSForegroundColorAttributeName:UIColor.blackColor()])
+        pickerLabel.attributedText = str
+        pickerLabel.adjustsFontSizeToFitWidth = true
+        return pickerLabel
     }
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         value = answers[row].name

@@ -146,7 +146,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" id="rQo-uP-zrJ">
+                            <pickerView clipsSubviews="YES" contentMode="scaleToFill" id="rQo-uP-zrJ">
                                 <rect key="frame" x="45" y="361" width="200" height="126"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <connections>
