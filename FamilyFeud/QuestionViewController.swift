@@ -10,6 +10,14 @@ import UIKit
 import CoreData
 
 class QuestionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
+    struct Ans{
+        var name: String = ""
+        var score: Int = 0
+        init(n: String, s: Int){
+            name = n
+            score = s
+        }
+    }
     @IBOutlet weak var questionLabel: UILabel!
     
     @IBOutlet weak var contestantLabel: UILabel!
@@ -27,8 +35,7 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var pickerView:UIPickerView!
     
     var items: [String] = []
-    var answers: [String] = ["Answer1", "Answer2", "Answer3", "Answer4",""]
-    var scores: [Int] = [45, 0,0,15,0]
+    var answers: [Ans] = [Ans(n:"COOKIES", s:3),Ans(n:"DONUT", s:0),Ans(n:"CAKE/CHEESECAKE", s:15), Ans(n:"BURGER", s:0), Ans(n:"ICE CREAM", s:32),Ans(n:"FRENCH FRIES", s:2),Ans(n:"PIZZA", s:14),Ans(n:"RIBS", s:0),Ans(n:"PIE", s:7),Ans(n:"STEAK", s:0),Ans(n:"CANDY/CHOCOLATE", s:13)]
     var userStr = "User"
     var value = ""
     var score = 0
@@ -40,6 +47,8 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         contestantLabel.text = "Contestant: " + userStr
         totalLabel.text = "Total:" + String(game)
+        questionLabel.text = "NAME YOUR FAVOURITE FATTENING FOOD"
+        wrongLabel.text = ""
         
         let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         let fetchRequest = NSFetchRequest(entityName: "User")
@@ -57,7 +66,7 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
         }
         
         self.answerTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        value = answers[0]
+        value = answers[0].name
         // Do any additional setup after loading the view.
     }
 
@@ -89,20 +98,21 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
         return answers.count
     }
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return answers[row]
+        return answers[row].name
     }
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        value = answers[row]
+        value = answers[row].name
     }
     @IBAction func submitAnswer(sender: UIButton){
         if (!items.contains(value) && value != ""){
             //This is like an extremely shit way to do things, fix next sprint
-            if let this_index = answers.indexOf(value){
-                let this_score = scores[this_index]
+            let this_ans = answers.filter{ $0.name == value}.first
+            
+                let this_score = this_ans?.score
                 if( this_score > 0){
                     items.append(value)
-                    score += this_score
-                    game += this_score
+                    score += this_score!
+                    game += this_score!
                     scoreLabel.text = String(score)
                     totalLabel.text = "Total:"  + String(game)
                 }else{
@@ -114,16 +124,15 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
                     }
                 }
             
-                answers.removeAtIndex(this_index)
-                scores.removeAtIndex(this_index)
-                }
+            answers = answers.filter{$0.name != value}
+            
             
             self.pickerView.reloadAllComponents()
             
-            if(answers.count < 2){
+            if(answers.filter{$0.score > 0}.count < 1){
                 performSegueWithIdentifier("ResultScreenSegue", sender: nil)
             }
-            
+        
         }
         self.answerTable.reloadData()
     }
