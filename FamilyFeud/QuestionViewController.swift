@@ -34,7 +34,7 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var pickerView:UIPickerView!
     
-    var items: [String] = []
+    var items: [Ans] = []
     var answers: [Ans] = [Ans(n:"COOKIES", s:3), Ans(n:"DONUT", s:0), Ans(n:"CAKE/CHEESECAKE", s:15), Ans(n:"BURGER", s:0), Ans(n:"ICE CREAM", s:32), Ans(n:"FRENCH FRIES", s:2), Ans(n:"PIZZA", s:14), Ans(n:"RIBS", s:0), Ans(n:"PIE", s:7), Ans(n:"STEAK", s:0), Ans(n:"CANDY/CHOCOLATE", s:13)]
     var userStr = "User"
     var value = ""
@@ -82,7 +82,7 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(answerTable: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell:UITableViewCell = self.answerTable.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
         
-        cell.textLabel?.text = self.items[indexPath.row]
+        cell.textLabel?.text = self.items[indexPath.row].name + ": " + String(self.items[indexPath.row].score)
         
         return cell
     }
@@ -108,13 +108,13 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
         value = answers[row].name
     }
     @IBAction func submitAnswer(sender: UIButton){
-        if (!items.contains(value) && value != ""){
+        if (value != ""){
             //This is like an extremely shit way to do things, fix next sprint
             let this_ans = answers.filter{ $0.name == value}.first
             
                 let this_score = this_ans?.score
                 if( this_score > 0){
-                    items.append(value)
+                    items.append(this_ans!)
                     score += this_score!
                     game += this_score!
                     scoreLabel.text = String(score)
@@ -129,7 +129,7 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
                 }
             
             answers = answers.filter{$0.name != value}
-            
+            items = items.sort{$0.score > $1.score}
             
             self.pickerView.reloadAllComponents()
             
