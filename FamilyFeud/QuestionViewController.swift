@@ -28,7 +28,7 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
     
     var items: [String] = []
     var answers: [String] = ["Answer1", "Answer2", "Answer3", "Answer4",""]
-    var correct: [String] = ["Answer1", "Answer4"]
+    var scores: [Int] = [45, 0,0,15,0]
     var userStr = "User"
     var value = ""
     var score = 0
@@ -97,20 +97,26 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
     }
     @IBAction func submitAnswer(sender: UIButton){
         if (!items.contains(value) && value != ""){
-            if(correct.contains(value)){
-                items.append(value)
-                score += 20
-                total += 20
-                scoreLabel.text = String(score)
-                totalLabel.text = "Total:"  + String(total)
-            }else{
-                if(wrong < 2){
-                wrong += 1
-                wrongLabel.text = wrongLabel.text! + "X"
+            //This is like an extremely shit way to do things, fix next sprint
+            if let this_index = answers.indexOf(value){
+                let this_score = scores[this_index]
+                if( this_score > 0){
+                    items.append(value)
+                    score += this_score
+                    total += this_score
+                    scoreLabel.text = String(score)
+                    totalLabel.text = "Total:"  + String(total)
+                }else{
+                    if(wrong < 2){
+                        wrong += 1
+                        wrongLabel.text = wrongLabel.text! + "X"
+                        }
                 }
-            }
             
-            answers = answers.filter{$0 != value}//This is the only line of Swift code I've ever liked
+                answers.removeAtIndex(this_index)
+                scores.removeAtIndex(this_index)
+                }
+            
             self.pickerView.reloadAllComponents()
             
             
