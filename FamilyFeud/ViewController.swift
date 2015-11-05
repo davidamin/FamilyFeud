@@ -93,6 +93,12 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
                 }
             }
     }
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        if let manager = locationManager{
+            manager.delegate = self
+            manager.startUpdatingLocation()
+        }
+    }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
                         
