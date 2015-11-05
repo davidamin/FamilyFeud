@@ -33,11 +33,13 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
     var value = ""
     var score = 0
     var wrong = 0
-    var total = 0
+    var game = 0
+    var lifetime = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         contestantLabel.text = "Contestant: " + userStr
+        totalLabel.text = "Total:" + String(game)
         
         let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         let fetchRequest = NSFetchRequest(entityName: "User")
@@ -48,10 +50,7 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
             let results =
             try managedObjectContext.executeFetchRequest(fetchRequest) as! [User]
             if(results.count > 0){
-                total = Int(results[0].highScore)
-                totalLabel.text = "Total:" + String(total)
-            }else{
-                totalLabel.text = "Total: 0"
+                lifetime = Int(results[0].highScore)
             }
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
@@ -103,14 +102,16 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
                 if( this_score > 0){
                     items.append(value)
                     score += this_score
-                    total += this_score
+                    game += this_score
                     scoreLabel.text = String(score)
-                    totalLabel.text = "Total:"  + String(total)
+                    totalLabel.text = "Total:"  + String(game)
                 }else{
                     if(wrong < 2){
                         wrong += 1
                         wrongLabel.text = wrongLabel.text! + "X"
-                        }
+                    }else{
+                        performSegueWithIdentifier("ResultScreenSegue", sender: nil)
+                    }
                 }
             
                 answers.removeAtIndex(this_index)
@@ -119,27 +120,38 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
             
             self.pickerView.reloadAllComponents()
             
-            
-            //This is a terrible way to do things, as we needn't write score every time you submit. But for now...
-            let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-            let fetchRequest = NSFetchRequest(entityName: "User")
-            let predicate = NSPredicate(format: "name == %@", userStr)
-            
-            fetchRequest.predicate = predicate
-            do {
-                let results =
-                try managedObjectContext.executeFetchRequest(fetchRequest) as! [User]
-                if(results.count > 0){
-                    results[0].highScore = NSNumber(integer: total)
-                }
-                try managedObjectContext.save()
-            } catch let error as NSError {
-                print("Could not fetch \(error), \(error.userInfo)")
+            if(answers.count < 2){
+                performSegueWithIdentifier("ResultScreenSegue", sender: nil)
             }
+            
         }
         self.answerTable.reloadData()
     }
-
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        let fetchRequest = NSFetchRequest(entityName: "User")
+        let predicate = NSPredicate(format: "name == %@", userStr)
+        
+        fetchRequest.predicate = predicate
+        do {
+            let results =
+            try managedObjectContext.executeFetchRequest(fetchRequest) as! [User]
+            if(results.count > 0){
+                results[0].highScore = NSNumber(integer: lifetime+score)
+            }
+            try managedObjectContext.save()
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+        
+        if let destinationVC = segue.destinationViewController as? ResultViewController{
+            destinationVC.username = userStr
+            destinationVC.score = score
+            destinationVC.game = game
+            destinationVC.life = lifetime + score
+        }
+    }
     /*
     // MARK: - Navigation
 

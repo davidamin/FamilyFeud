@@ -25,7 +25,9 @@ class HighScoresViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         let fetchRequest = NSFetchRequest(entityName: "User")
-        //figure out how to sort
+        let sortDescriptor = NSSortDescriptor(key: "highScore", ascending: false)
+        let sortDescriptors = [sortDescriptor]
+        fetchRequest.sortDescriptors = sortDescriptors
         do {
             let results =
             try managedObjectContext.executeFetchRequest(fetchRequest) as! [User]
