@@ -56,9 +56,9 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
         do{
         var jsonData = try NSData(contentsOfFile: path!, options: NSDataReadingOptions.DataReadingMappedIfSafe)
         
-        let jsonDict = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers) as? NSArray	
+        let jsonDict = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers) as? NSArray
             print(jsonDict)
-            let randQuestion = jsonDict![0]
+            let randQuestion = jsonDict![Int(arc4random_uniform(UInt32(jsonDict!.count)))]
             //TODO: Select a question at random
             questionLabel.text = randQuestion["question"] as? String
             let ansArr = randQuestion["answers"] as? NSArray
