@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import CoreMotion
+import GameplayKit
 
 class QuestionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
     struct Ans{
@@ -33,6 +35,8 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var answerTable: UITableView!
     
     @IBOutlet weak var pickerView:UIPickerView!
+    
+    lazy var motionManager = CMMotionManager()
     
     var items: [Ans] = []
     var answers: [Ans] = [Ans(n:"COOKIES", s:3), Ans(n:"DONUT", s:0), Ans(n:"CAKE/CHEESECAKE", s:15), Ans(n:"BURGER", s:0), Ans(n:"ICE CREAM", s:32), Ans(n:"FRENCH FRIES", s:2), Ans(n:"PIZZA", s:14), Ans(n:"RIBS", s:0), Ans(n:"PIE", s:7), Ans(n:"STEAK", s:0), Ans(n:"CANDY/CHOCOLATE", s:13)]
@@ -108,6 +112,17 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
         value = answers[row].name
     }
     
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        if motion == .MotionShake {
+            //let shuffled = GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(self.answers)
+            self.answers = self.answers.sort(){_,_ in arc4random() % 2 == 0}
+            self.pickerView.reloadAllComponents()
+            self.pickerView.alpha = 0.0
+            UIView.animateWithDuration(2.0, delay: 0.0, options: .CurveEaseOut, animations: {
+                self.pickerView.alpha = 1.0
+                }, completion: {_ in
+            })        }
+    }
     @IBAction func submitAnswer(sender: UIButton){
         var this_row = self.pickerView.selectedRowInComponent(0)
         value = answers[this_row].name
