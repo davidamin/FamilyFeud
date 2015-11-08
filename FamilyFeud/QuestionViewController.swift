@@ -107,7 +107,10 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         value = answers[row].name
     }
+    
     @IBAction func submitAnswer(sender: UIButton){
+        var this_row = self.pickerView.selectedRowInComponent(0)
+        value = answers[this_row].name
         if (value != ""){
             //This is like an extremely shit way to do things, fix next sprint
             let this_ans = answers.filter{ $0.name == value}.first
@@ -132,6 +135,7 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
             items = items.sort{$0.score > $1.score}
             
             self.pickerView.reloadAllComponents()
+            
             
             if(answers.filter{$0.score > 0}.count < 1){
                 performSegueWithIdentifier("ResultScreenSegue", sender: nil)
