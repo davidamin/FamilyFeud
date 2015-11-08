@@ -6,5 +6,21 @@
 {
 "question": "NAME SOME THINGS THAT LITTLE KIDS HATE TO DO:",
 "answers" : [{"answer": "GO TO BED", "score": "33"},{"answer": "TAKE A BATH/WASH", "score": "27"},{"answer": "BRUSH THEIR TEETH", "score": "12"},{"answer": "CLEAN THEIR ROOM", "score": "11"},{"answer": "EAT VEGETABLES", "score": "5"},{"answer": "PICK UP TOYS", "score": "3"},{"answer": "GO TO DENTIST", "score": "2"},{"answer": "TAKE MEDICINE", "score": "2"},{"answer": "SIT STILL", "score": "0"},{"answer": "GO TO SCHOOL", "score": "0"},{"answer": "GO TO CHURCH", "score": "0"},{"answer": "TURN OFF TV", "score": "0"},{"answer": "DO THEIR CHORES", "score": "0"},{"answer": "SHARE THEIR TOYS", "score": "0"},{"answer": "DO THEIR HOMEWORK", "score": "0"}]
+},
+{
+"question": "BASED ON WHAT YOU'VE SEEN IN COMIC BOOKS OR TV, NAME A PHYSICAL CHARACTERISTIC OF A MARTIAN:",
+"answers" : [{"answer": "GREEN BODY", "score": "45"},{"answer": "ANTENNA ON HEAD", "score": "35"},{"answer": "BIG EYES", "score": "3"},{"answer": "POINTY EARS", "score": "3"},{"answer": "BIG HEAD", "score": "2"},{"answer": "NO HAIR", "score": "2"},{"answer": "SMALL", "score": "2"},{"answer": "HUGE", "score": "0"},{"answer": "SLIMY", "score": "0"},{"answer": "MULTIPLE EYES", "score": "0"},{"answer": "NO NOSE", "score": "0"},{"answer": "NO MOUTH", "score": "0"},{"answer": "NO EARS", "score": "0"},{"answer": "FURRY", "score": "0"},{"answer": "MULTIPLE LEGS", "score": "0"}]
+},
+{
+"question": "NAME SOMETHING YOU OWN THAT REQUIRES A GOOD DEAL OF MONEY TO MAINTAIN:",
+"answers" : [{"answer": "HOUSE", "score": "50"},{"answer": "CAR", "score": "32"},{"answer": "POOL", "score": "11"},{"answer": "BOAT", "score": "4"},{"answer": "GARDEN", "score": "0"},{"answer": "HOT TUB", "score": "0"},{"answer": "SAUNA", "score": "0"},{"answer": "RV", "score": "0"},{"answer": "CANOE/KAYAK", "score": "0"},{"answer": "MODEL TRAIN", "score": "0"}]
+},
+{
+"question": "NAME A WAY LITTLE KIDS ARE PUNISHED:",
+"answers" : [{"answer": "SPANKING", "score": "42"},{"answer": "SEND TO ROOM/BED", "score": "17"},{"answer": "NO TV", "score": "13"},{"answer": "GROUNDED", "score": "9"},{"answer": "NO DINNER", "score": "6"},{"answer": "NO ALLOWANCE", "score": "4"},{"answer": "NO GOODIES", "score": "2"},{"answer": "STAND IN CORNER", "score": "2"},{"answer": "SIT STILL", "score": "0"},{"answer": "NO FRIENDS", "score": "0"},{"answer": "WASH MOUTH OUT", "score": "0"},{"answer": "MORE CHORES", "score": "0"},{"answer": "HANG OUT WITH GRANDPA", "score": "0"},{"answer": "NO COMPUTER", "score": "0"},{"answer": "NO PHONE", "score": "0"}]
+},
+{
+"question": "NAME A WHITE ANIMAL:",
+"answers" : [{"answer": "POLAR BEAR", "score": "63"},{"answer": "RABBIT", "score": "18"},{"answer": "CAT", "score": "7"},{"answer": "HORSE", "score": "4"},{"answer": "SEAL", "score": "2"},{"answer": "BALOOGA WHALE", "score": "0"},{"answer": "MOUSE", "score": "0"},{"answer": "WHITEFISH", "score": "0"},{"answer": "DOVE", "score": "0"},{"answer": "SEAGULL", "score": "0"},{"answer": "PELICAN", "score": "0"}]
 }
 ]
