@@ -12,7 +12,7 @@ import CoreMotion
 import GameplayKit
 
 class QuestionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
-    struct Ans{
+    class Ans{
         var name: String = ""
         var score: Int = 0
         init(n: String, s: Int){
@@ -56,18 +56,20 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
         do{
         var jsonData = try NSData(contentsOfFile: path!, options: NSDataReadingOptions.DataReadingMappedIfSafe)
         
-        let jsonDict = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary
+        let jsonDict = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers) as? NSArray	
+            print(jsonDict)
+            let randQuestion = jsonDict![0]
             //TODO: Select a question at random
-            questionLabel.text = jsonDict!["question"] as? String
-            let ansArr = jsonDict!["answers"] as? NSArray
-            print(ansArr![0]["answer"])
+            questionLabel.text = randQuestion["question"] as? String
+            let ansArr = randQuestion["answers"] as? NSArray
+            
             for a in ansArr!{
                 var tempAns = a["answer"] as? String
                 var tempScore = a["score"] as? String
                 self.answers.append(Ans(n:tempAns!,s:Int(tempScore!)!))
             }
-                self.answers = self.answers.sort(){_,_ in arc4random() % 2 == 0}
-            self.pickerView.reloadAllComponents()
+                self.answers = (GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(self.answers) as? [Ans])!
+                self.pickerView.reloadAllComponents()
         }catch{
             
         }
@@ -136,9 +138,8 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
         if motion == .MotionShake {
-            //WHY DOES THIS HAVE TO BE AN OBJECT
-            //let shuffled = GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(self.answers)
-            self.answers = self.answers.sort(){_,_ in arc4random() % 2 == 0}
+            self.answers = (GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(self.answers) as? [Ans])!
+            //self.answers = self.answers.sort(){_,_ in arc4random() % 2 == 0}
             self.pickerView.reloadAllComponents()
             self.pickerView.alpha = 0.0
             UIView.animateWithDuration(2.0, delay: 0.0, options: .CurveEaseOut, animations: {
