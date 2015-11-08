@@ -25,6 +25,7 @@
 		7CBD02781BD589F8001E67CD /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD02771BD589F8001E67CD /* TodayViewController.swift */; };
 		7CBD027B1BD589F8001E67CD /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CBD02791BD589F8001E67CD /* MainInterface.storyboard */; };
 		7CBD027F1BD589F8001E67CD /* FamilyFeudWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7CBD02721BD589F7001E67CD /* FamilyFeudWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7CE543111BEFD129003A8B5E /* questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CE543101BEFD129003A8B5E /* questions.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		7CBD02771BD589F8001E67CD /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		7CBD027A1BD589F8001E67CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		7CBD027C1BD589F8001E67CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CE543101BEFD129003A8B5E /* questions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = questions.json; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 		7C8731CC1BD4169E00013E0B /* FamilyFeud */ = {
 			isa = PBXGroup;
 			children = (
+				7CE543101BEFD129003A8B5E /* questions.json */,
 				7C5C66781BE997530081F2D6 /* icon.png */,
 				7C2F303F1BDDB1AF0020E168 /* theme.mp3 */,
 				7C8731CD1BD4169E00013E0B /* AppDelegate.swift */,
@@ -239,6 +242,7 @@
 				7C8731DB1BD4169F00013E0B /* LaunchScreen.storyboard in Resources */,
 				7C5C66791BE997530081F2D6 /* icon.png in Resources */,
 				7C8731D81BD4169E00013E0B /* Assets.xcassets in Resources */,
+				7CE543111BEFD129003A8B5E /* questions.json in Resources */,
 				7C2F30401BDDB1AF0020E168 /* theme.mp3 in Resources */,
 				7C8731D31BD4169E00013E0B /* Main.storyboard in Resources */,
 			);

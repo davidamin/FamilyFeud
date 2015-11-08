@@ -20,6 +20,7 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
             score = s
         }
     }
+    
     @IBOutlet weak var questionLabel: UILabel!
     
     @IBOutlet weak var contestantLabel: UILabel!
@@ -39,7 +40,7 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
     lazy var motionManager = CMMotionManager()
     
     var items: [Ans] = []
-    var answers: [Ans] = [Ans(n:"COOKIES", s:3), Ans(n:"DONUT", s:0), Ans(n:"CAKE/CHEESECAKE", s:15), Ans(n:"BURGER", s:0), Ans(n:"ICE CREAM", s:32), Ans(n:"FRENCH FRIES", s:2), Ans(n:"PIZZA", s:14), Ans(n:"RIBS", s:0), Ans(n:"PIE", s:7), Ans(n:"STEAK", s:0), Ans(n:"CANDY/CHOCOLATE", s:13)]
+    var answers: [Ans] = []
     var userStr = "User"
     var value = ""
     var score = 0
@@ -49,9 +50,30 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let path = NSBundle.mainBundle().pathForResource("questions", ofType: "json")
+        
+        do{
+        var jsonData = try NSData(contentsOfFile: path!, options: NSDataReadingOptions.DataReadingMappedIfSafe)
+        
+        let jsonDict = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary
+            //TODO: Select a question at random
+            questionLabel.text = jsonDict!["question"] as? String
+            let ansArr = jsonDict!["answers"] as? NSArray
+            print(ansArr![0]["answer"])
+            for a in ansArr!{
+                var tempAns = a["answer"] as? String
+                var tempScore = a["score"] as? String
+                self.answers.append(Ans(n:tempAns!,s:Int(tempScore!)!))
+            }
+                self.answers = self.answers.sort(){_,_ in arc4random() % 2 == 0}
+            self.pickerView.reloadAllComponents()
+        }catch{
+            
+        }
+        
         contestantLabel.text = "Contestant: " + userStr
         totalLabel.text = "Total:" + String(game)
-        questionLabel.text = "NAME YOUR FAVOURITE FATTENING FOOD"
         wrongLabel.text = ""
         
         let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -114,6 +136,7 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
         if motion == .MotionShake {
+            //WHY DOES THIS HAVE TO BE AN OBJECT
             //let shuffled = GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(self.answers)
             self.answers = self.answers.sort(){_,_ in arc4random() % 2 == 0}
             self.pickerView.reloadAllComponents()
