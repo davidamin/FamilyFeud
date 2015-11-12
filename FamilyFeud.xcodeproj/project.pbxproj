@@ -15,6 +15,7 @@
 		7C2F30401BDDB1AF0020E168 /* theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7C2F303F1BDDB1AF0020E168 /* theme.mp3 */; };
 		7C5C66791BE997530081F2D6 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C5C66781BE997530081F2D6 /* icon.png */; };
 		7C7A30511BDD9EF100B68309 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7A30501BDD9EF100B68309 /* QuestionViewController.swift */; };
+		7C86EBC31BF4179300491B1F /* FastMoneyControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C86EBC21BF4179300491B1F /* FastMoneyControllerViewController.swift */; };
 		7C8731CE1BD4169E00013E0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8731CD1BD4169E00013E0B /* AppDelegate.swift */; };
 		7C8731D01BD4169E00013E0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8731CF1BD4169E00013E0B /* ViewController.swift */; };
 		7C8731D31BD4169E00013E0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C8731D11BD4169E00013E0B /* Main.storyboard */; };
@@ -61,6 +62,7 @@
 		7C2F303F1BDDB1AF0020E168 /* theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = theme.mp3; sourceTree = "<group>"; };
 		7C5C66781BE997530081F2D6 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = SOURCE_ROOT; };
 		7C7A30501BDD9EF100B68309 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		7C86EBC21BF4179300491B1F /* FastMoneyControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FastMoneyControllerViewController.swift; sourceTree = "<group>"; };
 		7C8731CA1BD4169E00013E0B /* FamilyFeud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FamilyFeud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C8731CD1BD4169E00013E0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C8731CF1BD4169E00013E0B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				7C8731CF1BD4169E00013E0B /* ViewController.swift */,
 				7C2CB90A1BEAFE9900D2EB32 /* ResultViewController.swift */,
 				7C8731D11BD4169E00013E0B /* Main.storyboard */,
+				7C86EBC21BF4179300491B1F /* FastMoneyControllerViewController.swift */,
 				7C2CB9081BEAF6D700D2EB32 /* HighScoresViewController.swift */,
 				7C8731D71BD4169E00013E0B /* Assets.xcassets */,
 				7C8731D91BD4169F00013E0B /* LaunchScreen.storyboard */,
@@ -267,6 +270,7 @@
 				7C263DEA1BE6863300CAA16E /* DataModel.xcdatamodeld in Sources */,
 				7C2CB9091BEAF6D700D2EB32 /* HighScoresViewController.swift in Sources */,
 				7C2CB90B1BEAFE9900D2EB32 /* ResultViewController.swift in Sources */,
+				7C86EBC31BF4179300491B1F /* FastMoneyControllerViewController.swift in Sources */,
 				7C8731D61BD4169E00013E0B /* FamilyFeud.xcdatamodeld in Sources */,
 				7C7A30511BDD9EF100B68309 /* QuestionViewController.swift in Sources */,
 				7C8731CE1BD4169E00013E0B /* AppDelegate.swift in Sources */,
