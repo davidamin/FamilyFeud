@@ -16,6 +16,7 @@
 		7C5C66791BE997530081F2D6 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C5C66781BE997530081F2D6 /* icon.png */; };
 		7C7A30511BDD9EF100B68309 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7A30501BDD9EF100B68309 /* QuestionViewController.swift */; };
 		7C86EBC31BF4179300491B1F /* FastMoneyControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C86EBC21BF4179300491B1F /* FastMoneyControllerViewController.swift */; };
+		7C86EBC51BF42D7700491B1F /* fastmoney.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C86EBC41BF42D7700491B1F /* fastmoney.json */; };
 		7C8731CE1BD4169E00013E0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8731CD1BD4169E00013E0B /* AppDelegate.swift */; };
 		7C8731D01BD4169E00013E0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8731CF1BD4169E00013E0B /* ViewController.swift */; };
 		7C8731D31BD4169E00013E0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C8731D11BD4169E00013E0B /* Main.storyboard */; };
@@ -63,6 +64,7 @@
 		7C5C66781BE997530081F2D6 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = SOURCE_ROOT; };
 		7C7A30501BDD9EF100B68309 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		7C86EBC21BF4179300491B1F /* FastMoneyControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FastMoneyControllerViewController.swift; sourceTree = "<group>"; };
+		7C86EBC41BF42D7700491B1F /* fastmoney.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fastmoney.json; sourceTree = SOURCE_ROOT; };
 		7C8731CA1BD4169E00013E0B /* FamilyFeud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FamilyFeud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C8731CD1BD4169E00013E0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C8731CF1BD4169E00013E0B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		7C8731CC1BD4169E00013E0B /* FamilyFeud */ = {
 			isa = PBXGroup;
 			children = (
+				7C86EBC41BF42D7700491B1F /* fastmoney.json */,
 				7CE543101BEFD129003A8B5E /* questions.json */,
 				7C5C66781BE997530081F2D6 /* icon.png */,
 				7C2F303F1BDDB1AF0020E168 /* theme.mp3 */,
@@ -244,6 +247,7 @@
 			files = (
 				7C8731DB1BD4169F00013E0B /* LaunchScreen.storyboard in Resources */,
 				7C5C66791BE997530081F2D6 /* icon.png in Resources */,
+				7C86EBC51BF42D7700491B1F /* fastmoney.json in Resources */,
 				7C8731D81BD4169E00013E0B /* Assets.xcassets in Resources */,
 				7CE543111BEFD129003A8B5E /* questions.json in Resources */,
 				7C2F30401BDDB1AF0020E168 /* theme.mp3 in Resources */,
