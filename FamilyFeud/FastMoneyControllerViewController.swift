@@ -34,6 +34,9 @@ class FastMoneyControllerViewController: UIViewController, UITableViewDelegate, 
     var items: [Ans] = []
     var answers: [Ans] = []
     
+    var value: String = ""
+    var questionIndex : Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,6 +61,9 @@ class FastMoneyControllerViewController: UIViewController, UITableViewDelegate, 
         }catch{
             
         }
+        for i in 1...5{
+            self.items.append(Ans(n:"",s:0))
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,7 +78,12 @@ class FastMoneyControllerViewController: UIViewController, UITableViewDelegate, 
     func tableView(answerTable: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell:UITableViewCell = self.answerTable.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
         
-        cell.textLabel?.text = self.items[indexPath.row].name + ": " + String(self.items[indexPath.row].score)
+        if(self.items[indexPath.row].score > 0){
+            
+            cell.textLabel?.text = self.items[indexPath.row].name + ": " + String(self.items[indexPath.row].score)
+        }else{
+            cell.textLabel?.text = self.items[indexPath.row].name
+        }
         
         return cell
     }
@@ -109,41 +120,27 @@ class FastMoneyControllerViewController: UIViewController, UITableViewDelegate, 
             })        }
     }
     @IBAction func submitAnswer(sender: UIButton){
-        /*var this_row = self.pickerView.selectedRowInComponent(0)
+        var this_row = self.pickerView.selectedRowInComponent(0)
         value = answers[this_row].name
         if (value != ""){
-            //This is like an extremely shit way to do things, fix next sprint
             let this_ans = answers.filter{ $0.name == value}.first
             
             let this_score = this_ans?.score
-            if( this_score > 0){
-                items.append(this_ans!)
-                score += this_score!
-                game += this_score!
-                scoreLabel.text = String(score)
-                totalLabel.text = "Total:"  + String(game)
-            }else{
-                if(wrong < 2){
-                    wrong += 1
-                    wrongLabel.text = wrongLabel.text! + "X"
-                }else{
-                    performSegueWithIdentifier("ResultScreenSegue", sender: nil)
-                }
-            }
+            
+            items[questionIndex].name = value
+            items[questionIndex].score = this_score!
             
             answers = answers.filter{$0.name != value}
-            items = items.sort{$0.score > $1.score}
             
             self.pickerView.reloadAllComponents()
             
-            
-            if(answers.filter{$0.score > 0}.count < 1){
+            /*if(answers.filter{$0.score > 0}.count < 1){
                 performSegueWithIdentifier("ResultScreenSegue", sender: nil)
-            }
+            }*/
             
         }
         self.answerTable.reloadData()
-*/
+
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
