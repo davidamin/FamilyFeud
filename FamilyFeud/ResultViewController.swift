@@ -9,6 +9,8 @@
 import UIKit
 
 class ResultViewController: UIViewController {
+    @IBOutlet weak var nextBtn: UIButton!
+    
     @IBOutlet weak var scoreLabel: UILabel!
     
     @IBOutlet weak var gameLabel: UILabel!
@@ -20,6 +22,7 @@ class ResultViewController: UIViewController {
     var score = 0
     var game = 0
     var life = 0
+    var round = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +30,10 @@ class ResultViewController: UIViewController {
         scoreLabel.text = String(score)
         gameLabel.text = String(game)
         lifeLabel.text = String(life)
+        
+        if(round > 2){
+            nextBtn.setTitle("Fast Money!", forState: UIControlState.Normal)
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -36,10 +43,18 @@ class ResultViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func submitAnswer(sender: UIButton){
+        if(round > 2){
+        performSegueWithIdentifier("ResultToFastSegue", sender: nil)
+        }else{
+        performSegueWithIdentifier("NewQuestionSegue", sender: nil)
+        }
+    }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let destinationVC = segue.destinationViewController as? QuestionViewController{
             destinationVC.userStr = username
             destinationVC.game = game
+            destinationVC.round = round
         }
     }
 

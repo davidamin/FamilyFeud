@@ -47,6 +47,7 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
     var wrong = 0
     var game = 0
     var lifetime = 0
+    var round = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -205,6 +206,7 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
             destinationVC.score = score
             destinationVC.game = game
             destinationVC.life = lifetime + score
+            destinationVC.round = round + 1
         }
     }
     /*
