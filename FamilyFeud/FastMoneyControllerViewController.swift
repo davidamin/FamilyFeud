@@ -40,6 +40,7 @@ class FastMoneyControllerViewController: UIViewController, UITableViewDelegate, 
     var jsonDict: NSArray = []
     
     var total = 0
+    var lifetime = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -163,27 +164,10 @@ class FastMoneyControllerViewController: UIViewController, UITableViewDelegate, 
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        /*let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-        let fetchRequest = NSFetchRequest(entityName: "User")
-        let predicate = NSPredicate(format: "name == %@", userStr)
         
-        fetchRequest.predicate = predicate
-        do {
-            let results =
-            try managedObjectContext.executeFetchRequest(fetchRequest) as! [User]
-            if(results.count > 0){
-                results[0].highScore = NSNumber(integer: lifetime+score)
-            }
-            try managedObjectContext.save()
-        } catch let error as NSError {
-            print("Could not fetch \(error), \(error.userInfo)")
-        }*/
-        
-        /*if let destinationVC = segue.destinationViewController as? ResultViewController{
-            destinationVC.username = userStr
-            destinationVC.score = score
-            destinationVC.game = game
-            destinationVC.life = lifetime + score
-        }*/
+        if let destinationVC = segue.destinationViewController as? GameOverControllerViewController{
+            destinationVC.gameTotal = total
+            destinationVC.lifeTotal = lifetime + total
+        }
     }
 }

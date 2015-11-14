@@ -57,6 +57,9 @@ class ResultViewController: UIViewController {
             destinationVC.game = game
             destinationVC.round = round
         }
+        if let destinationVC = segue.destinationViewController as? FastMoneyControllerViewController{
+            destinationVC.lifetime = life
+        }
     }
 
     /*
