@@ -44,6 +44,7 @@ class ResultViewController: UIViewController {
     }
     
     @IBAction func submitAnswer(sender: UIButton){
+        print(round)
         if(round > 2){
         performSegueWithIdentifier("ResultToFastSegue", sender: nil)
         }else{

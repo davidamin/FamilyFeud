@@ -31,23 +31,29 @@ class FastMoneyControllerViewController: UIViewController, UITableViewDelegate, 
     
     @IBOutlet weak var pickerView:UIPickerView!
     
-    var items: [Ans] = []
+    var prev: [Ans] = []
     var answers: [Ans] = []
     
     var value: String = ""
     var questionIndex : Int = 0
     
+    var jsonDict: NSArray = []
+    
+    var total = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        totalLabel.text = "Total: " + String(total)
         
         let path = NSBundle.mainBundle().pathForResource("fastmoney", ofType: "json")
         
         do{
             var jsonData = try NSData(contentsOfFile: path!, options: NSDataReadingOptions.DataReadingMappedIfSafe)
             
-            let jsonDict = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers) as? NSArray
-            //print(jsonDict)
-            let randQuestion = jsonDict![Int(arc4random_uniform(UInt32(jsonDict!.count)))]
+            jsonDict = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers) as! NSArray
+            print(jsonDict)
+            let randQuestion = jsonDict[Int(arc4random_uniform(UInt32(jsonDict.count)))]
             questionLabel.text = randQuestion["question"] as? String
             let ansArr = randQuestion["answers"] as? NSArray
             
@@ -61,10 +67,23 @@ class FastMoneyControllerViewController: UIViewController, UITableViewDelegate, 
         }catch{
             
         }
-        for i in 1...5{
-            self.items.append(Ans(n:"",s:0))
-        }
+        
+        self.answerTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
+    
+    func generateQuestion(){
+        self.answers.removeAll()
+        let randQuestion = jsonDict[Int(arc4random_uniform(UInt32(jsonDict.count)))]
+        questionLabel.text = randQuestion["question"] as? String
+        let ansArr = randQuestion["answers"] as? NSArray
+        
+        for a in ansArr!{
+            var tempAns = a["answer"] as? String
+            var tempScore = a["score"] as? String
+            self.answers.append(Ans(n:tempAns!,s:Int(tempScore!)!))
+        }
+        self.answers = (GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(self.answers) as? [Ans])!
+        self.pickerView.reloadAllComponents()    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -72,18 +91,12 @@ class FastMoneyControllerViewController: UIViewController, UITableViewDelegate, 
     }
     
     func tableView(answerTable: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.items.count
+        return self.prev.count
     }
     
     func tableView(answerTable: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell:UITableViewCell = self.answerTable.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
-        
-        if(self.items[indexPath.row].score > 0){
-            
-            cell.textLabel?.text = self.items[indexPath.row].name + ": " + String(self.items[indexPath.row].score)
-        }else{
-            cell.textLabel?.text = self.items[indexPath.row].name
-        }
+        cell.textLabel?.text = self.prev[indexPath.row].name + ": " + String(self.prev[indexPath.row].score)
         
         return cell
     }
@@ -122,24 +135,30 @@ class FastMoneyControllerViewController: UIViewController, UITableViewDelegate, 
     @IBAction func submitAnswer(sender: UIButton){
         var this_row = self.pickerView.selectedRowInComponent(0)
         value = answers[this_row].name
-        if (value != ""){
-            let this_ans = answers.filter{ $0.name == value}.first
+        let this_ans = answers.filter{ $0.name == value}.first
             
-            let this_score = this_ans?.score
+        let this_score = this_ans?.score
+        
+        total += this_score!
+        
+        totalLabel.text = "Total: " + String(total)
+
+        prev.append(Ans(n:value, s:this_score!))
             
-            items[questionIndex].name = value
-            items[questionIndex].score = this_score!
+        answers = answers.filter{$0.name != value}
             
-            answers = answers.filter{$0.name != value}
+        self.pickerView.reloadAllComponents()
             
-            self.pickerView.reloadAllComponents()
-            
-            /*if(answers.filter{$0.score > 0}.count < 1){
-                performSegueWithIdentifier("ResultScreenSegue", sender: nil)
-            }*/
-            
-        }
         self.answerTable.reloadData()
+        
+        questionIndex++
+        
+        //Load next question
+        if(questionIndex < 5){
+            generateQuestion()
+        }else{
+            performSegueWithIdentifier("GameOverSegue", sender: nil)
+        }
 
     }
     
