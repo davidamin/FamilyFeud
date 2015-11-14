@@ -22,5 +22,49 @@
 {
 "question": "NAME A WHITE ANIMAL:",
 "answers" : [{"answer": "POLAR BEAR", "score": "63"},{"answer": "RABBIT", "score": "18"},{"answer": "CAT", "score": "7"},{"answer": "HORSE", "score": "4"},{"answer": "SEAL", "score": "2"},{"answer": "BALOOGA WHALE", "score": "0"},{"answer": "MOUSE", "score": "0"},{"answer": "WHITEFISH", "score": "0"},{"answer": "DOVE", "score": "0"},{"answer": "SEAGULL", "score": "0"},{"answer": "PELICAN", "score": "0"}]
+},
+{
+"question": "NAME AN UNUSUAL PLACE WHERE BABIES ARE SOMETIMES BORN:",
+"answers" : [{"answer": "CAR/TAXI", "score": "77"},{"answer": "AIRPLANE", "score": "7"},{"answer": "AT HOME", "score": "6"},{"answer": "ELEVATOR", "score": "6"},{"answer": "BOAT", "score": "0"},{"answer": "SUBWAY CAR", "score": "0"},{"answer": "CLASSROOM", "score": "0"},{"answer": "IN A STORE", "score": "0"}]
+},
+{
+"question": "NAME AN EXCUSE THAT PEOPLE USE TO GET OUT OF JURY DUTY:",
+"answers" : [{"answer": "ILLNESS", "score": "38"},{"answer": "WORK", "score": "35"},{"answer": "CARE FOR CHILDREN", "score": "7"},{"answer": "KNOW ABOUT CASE", "score": "5"},{"answer": "KNOW PEOPLE INVOLVED", "score": "4"},{"answer": "OUT OF TOWN", "score": "3"},{"answer": "CAN'T AFFORD TO", "score": "2"},{"answer": "THEY ARE PREJUDICED", "score": "0"},{"answer": "THEY ARE NOT A CITIZEN", "score": "0"},{"answer": "THEY KNOW ABOUT JURY NULLIFICATION", "score": "0"},{"answer": "CAN'T SPEAK ENGLISH", "score": "0"},{"answer": "DOCTOR ON CALL", "score": "0"},{"answer": "GIVING BIRTH SOON", "score": "0"}]
+},
+{
+"question": "NAME SOMETHING THAT TEENAGE COUPLES HAVE TO PLAN WHEN THEY DECIDE TO ELOPE:",
+"answers" : [{"answer": "WHERE TO MARRY", "score": "32"},{"answer": "WHERE TO LIVE", "score": "18"},{"answer": "WHEN TO DO IT", "score": "17"},{"answer": "HOW TO LEAVE THE HOUSE", "score": "10"},{"answer": "TRANSPORTATION", "score": "8"},{"answer": "WHERE TO GET MONEY", "score": "4"},{"answer": "WHERE TO MEET ROD STEWART", "score": "0"},{"answer": "WHO TO TELL", "score": "0"},{"answer": "WHAT TO WEAR", "score": "0"},{"answer": "WHO TO ELOPE WITH", "score": "0"}]
+},
+{
+"question": "TELL ME SOMETHING EVERY SPORTS FAN DOES THE MINUTE HE OR SHE IS CAUGHT BY THE TV CAMERA:",
+"answers" : [{"answer": "WAVES", "score": "68"},{"answer": "SAYS 'HI, MOM'", "score": "18"},{"answer": "SMILES", "score": "7"},{"answer": "HAND SIGNS 'WE ARE NUMBER 1'", "score": "3"},{"answer": "DANCES", "score": "0"},{"answer": "SAYS 'STOP!'", "score": "0"},{"answer": "MAKE A FUNNY FACE", "score": "0"},{"answer": "MAKES BULL HORNS", "score": "0"},{"answer": "STICKS OUT TONGUE", "score": "0"}]
+},
+{
+"question": "NAME SOMETHING THAT KIDS ALWAYS BRAG ABOUT REGARDING THEIR FATHERS:",
+"answers" : [{"answer": "BIGGER/STRONGER", "score": "54"},{"answer": "JOB", "score": "23"},{"answer": "MONEY THEY MAKE", "score": "13"},{"answer": "TAKES THEM PLACES", "score": "3"},{"answer": "SMARTER", "score": "0"},{"answer": "FUNNIER", "score": "0"},{"answer": "COOLER", "score": "0"},{"answer": "CAR/MOTORCYCLE", "score": "0"}]
+},
+{
+"question": "NAME A FOOD YOU LIKE SO MUCH THAT YOU'D HATE TO BE ALLERGIC TO:",
+"answers" : [{"answer": "CHOCOLATE", "score": "26"},{"answer": "MILK", "score": "23"},{"answer": "SEAFOOD", "score": "8"},{"answer": "ICE CREAM", "score": "6"},{"answer": "PIZZA", "score": "6"},{"answer": "EGGS", "score": "5"},{"answer": "STRAWBERRIES", "score": "5"},{"answer": "MEAT", "score": "4"},{"answer": "COFFEE", "score": "0"},{"answer": "BURRITOS", "score": "0"},{"answer": "BAGELS", "score": "0"},{"answer": "YOGURT", "score": "0"},{"answer": "AVOCADOS", "score": "0"},{"answer": "BREAD", "score": "0"},{"answer": "POTATOES", "score": "0"}]
+},
+{
+"question": "NAME A SPECIFIC PART OF THE BODY THAT'S HARD TO KEEP A BAND-AID STUCK TO:",
+"answers" : [{"answer": "FINGER", "score": "29"},{"answer": "ELBOW", "score": "26"},{"answer": "KNEE", "score": "17"},{"answer": "TOE", "score": "10"},{"answer": "PALM OF HAND", "score": "9"},{"answer": "BOTTOM OF FOOT", "score": "3"},{"answer": "WHERE THE SUN DON'T SHINE", "score": "0"},{"answer": "STOMACH", "score": "0"},{"answer": "BACK", "score": "0"},{"answer": "LEG", "score": "0"},{"answer": "ARM", "score": "0"},{"answer": "FACE", "score": "0"}]
+},
+{
+"question": "NAME A JOB AROUND THE HOUSE THAT HAS TO BE DONE EVERY FALL:",
+"answers" : [{"answer": "RAKE LEAVES", "score": "48"},{"answer": "STORM WINDOWS ON", "score": "12"},{"answer": "WASH WINDOWS", "score": "10"},{"answer": "CLEAN OUT GUTTERS", "score": "7"},{"answer": "WEED GARDEN", "score": "0"},{"answer": "TRIM BUSHES", "score": "0"},{"answer": "INSPECT HEATING UNIT", "score": "0"},{"answer": "SEAL DOORS", "score": "0"}]
+},
+{
+"question": "NAME A SPECIFIC ARTICLE OF CLOTHING MEN BUY FOR WOMEN:",
+"answers" : [{"answer": "NIGHTGOWN/NEGLIGEE", "score": "47"},{"answer": "LINGERIE/UNDERWEAR", "score": "18"},{"answer": "BLOUSE", "score": "8"},{"answer": "COAT/FUR COAT", "score": "8"},{"answer": "DRESS", "score": "6"},{"answer": "SWEATER", "score": "5"},{"answer": "ROBE", "score": "4"},{"answer": "GLOVES", "score": "2"},{"answer": "SHOES", "score": "0"},{"answer": "SHIRT", "score": "0"},{"answer": "PANTS", "score": "0"},{"answer": "LEGGINGS", "score": "0"},{"answer": "HAT", "score": "0"},{"answer": "SCARF", "score": "0"},{"answer": "SOCKS", "score": "0"}]
+},
+{
+"question": "NAME SOMETHING A MAN MIGHT DO FOR A WOMAN THAT SHE WOULD THINK IS ROMANTIC:",
+"answers" : [{"answer": "GIVE HER FLOWERS", "score": "80"},{"answer": "CANDLELIGHT DINNER", "score": "9"},{"answer": "OPEN DOOR", "score": "2"},{"answer": "TAKE HER ON TRIP", "score": "2"},{"answer": "BUY HER JEWELRY", "score": "6"},{"answer": "CLEAN HOUSE", "score": "0"},{"answer": "GOOD MORNING TEXT", "score": "0"},{"answer": "BUY HER CLOTHES", "score": "0"},{"answer": "MAKE BREAKFAST", "score": "0"},{"answer": "COOK DINNER", "score": "0"},{"answer": "BRING HER FOOD", "score": "0"}]
+},
+{
+"question": "NAME SOMETHING CLOSE FRIENDS OFTEN SHARE WITH EACH OTHER:",
+"answers" : [{"answer": "SECRETS", "score": "57"},{"answer": "CLOTHES", "score": "18"},{"answer": "PROBLEMS", "score": "8"},{"answer": "OPINIONS/FEELINGS", "score": "3"},{"answer": "DREAMS", "score": "2"},{"answer": "FOOD", "score": "2"},{"answer": "DRINKS", "score": "0"},{"answer": "RUMORS", "score": "0"},{"answer": "NEWS", "score": "0"},{"answer": "ACCOUNTS/PASSWORDS", "score": "0"},{"answer": "VACATIONS/TRIPS", "score": "0"},{"answer": "MOVIES/MUSIC", "score": "0"},{"answer": "GAMES/TOYS", "score": "0"}]
 }
 ]
