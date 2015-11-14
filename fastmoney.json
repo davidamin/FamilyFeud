@@ -13,10 +13,14 @@
 },	
 {
 "question": "NAME THE AGE WHEN MEN START LOSING THEIR HAIR:",
-"answers" : [{"answer": "40", "score": "25"},{"answer": "35", "score": "23"},{"answer": "30", "score": "22"},{"answer": "$25", "score": "10"},{"answer": "45", "score": "8"},{"answer": "50", "score": "3"},{"answer": "28", "score": "2"}]
+"answers" : [{"answer": "40", "score": "25"},{"answer": "35", "score": "23"},{"answer": "30", "score": "22"},{"answer": "25", "score": "10"},{"answer": "45", "score": "8"},{"answer": "50", "score": "3"},{"answer": "28", "score": "2"}]
 },
 {
 "question": "HOW MANY ITEMS ARE ALLOWED IN A SUPERMARKET EXPRESS LANE?",
 "answers" : [{"answer": "10", "score": "44"},{"answer": "8", "score": "18"},{"answer": "12", "score": "17"},{"answer": "15", "score": "11"},{"answer": "9", "score": "3"},{"answer": "6", "score": "3"},{"answer": "7", "score": "2"}]
+},
+{
+"question": "NAME A THICK SOUP:",
+"answers" : [{"answer": "PEA", "score": "36"},{"answer": "CLAM CHOWDER", "score": "18"},{"answer": "TOMATO", "score": "11"},{"answer": "POTATO", "score": "10"},{"answer": "MUSHROOM", "score": "9"},{"answer": "BEAN", "score": "6"},{"answer": "VEGETABLE", "score": "6"},{"answer": "CHILI", "score": "4"}]
 }
 ]
