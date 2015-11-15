@@ -48,6 +48,7 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
     var game = 0
     var lifetime = 0
     var round = 0
+    var used : [Int] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +60,12 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
         
         let jsonDict = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers) as? NSArray
             //print(jsonDict)
-            let randQuestion = jsonDict![Int(arc4random_uniform(UInt32(jsonDict!.count)))]
+            var randIndex = Int(arc4random_uniform(UInt32(jsonDict!.count)))
+            while(used.contains(randIndex)){
+                randIndex = Int(arc4random_uniform(UInt32(jsonDict!.count)))
+            }
+            let randQuestion = jsonDict![randIndex]
+            used.append(randIndex)
             questionLabel.text = randQuestion["question"] as? String
             let ansArr = randQuestion["answers"] as? NSArray
             
@@ -207,6 +213,7 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
             destinationVC.game = game
             destinationVC.life = lifetime + score
             destinationVC.round = round + 1
+            destinationVC.used = used
         }
     }
     /*

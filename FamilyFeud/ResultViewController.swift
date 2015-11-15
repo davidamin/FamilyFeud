@@ -23,6 +23,7 @@ class ResultViewController: UIViewController {
     var game = 0
     var life = 0
     var round = 0
+    var used : [Int] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +57,7 @@ class ResultViewController: UIViewController {
             destinationVC.userStr = username
             destinationVC.game = game
             destinationVC.round = round
+            destinationVC.used = used
         }
         if let destinationVC = segue.destinationViewController as? FastMoneyControllerViewController{
             destinationVC.lifetime = life
