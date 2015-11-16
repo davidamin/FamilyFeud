@@ -139,12 +139,18 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(answerTable: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:UITableViewCell = self.answerTable.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
+        var cell:UITableViewCell? = self.answerTable.dequeueReusableCellWithIdentifier("cell")! as? UITableViewCell
+        if cell != nil{
+            cell = UITableViewCell(style:UITableViewCellStyle.Value1, reuseIdentifier: "cell")
+        }
         
-        cell.textLabel?.text = self.items[indexPath.row].name + ": " + String(self.items[indexPath.row].score)
-        cell.backgroundColor = UIColor.blackColor()
-        cell.textLabel?.textColor = UIColor.whiteColor()
-        return cell
+        cell!.textLabel?.text = self.items[indexPath.row].name
+        cell!.detailTextLabel?.text = String(self.items[indexPath.row].score)
+        cell!.backgroundColor = UIColor.blackColor()
+        cell!.textLabel?.textColor = UIColor.whiteColor()
+        cell!.detailTextLabel?.textColor = UIColor.whiteColor()
+        //cell!.detailTextLabel?.backgroundColor = UIColor.blueColor()
+        return cell!
     }
     
     func tableView(answerTable: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

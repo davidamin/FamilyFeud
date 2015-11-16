@@ -116,11 +116,18 @@ class FastMoneyControllerViewController: UIViewController, UITableViewDelegate, 
     }
     
     func tableView(answerTable: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:UITableViewCell = self.answerTable.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
-        cell.textLabel?.text = self.prev[indexPath.row].name + ": " + String(self.prev[indexPath.row].score)
+        var cell:UITableViewCell? = self.answerTable.dequeueReusableCellWithIdentifier("cell")! as? UITableViewCell
+        if cell != nil{
+            cell = UITableViewCell(style:UITableViewCellStyle.Value1, reuseIdentifier: "cell")
+        }
         
-        return cell
-    }
+        cell!.textLabel?.text = self.prev[indexPath.row].name
+        cell!.detailTextLabel?.text = String(self.prev[indexPath.row].score)
+        cell!.backgroundColor = UIColor.blackColor()
+        cell!.textLabel?.textColor = UIColor.whiteColor()
+        cell!.detailTextLabel?.textColor = UIColor.whiteColor()
+        //cell!.detailTextLabel?.backgroundColor = UIColor.blueColor()
+        return cell!    }
     
     func tableView(answerTable: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //print("You selected cell #\(indexPath.row)!")
