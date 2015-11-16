@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import CoreMotion
 import GameplayKit
+import AVFoundation
 
 class FastMoneyControllerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource  {
     class Ans{
@@ -30,6 +31,8 @@ class FastMoneyControllerViewController: UIViewController, UITableViewDelegate, 
     @IBOutlet weak var answerTable: UITableView!
     
     @IBOutlet weak var pickerView:UIPickerView!
+    
+    var rightMus = AVAudioPlayer()
     
     var prev: [Ans] = []
     var answers: [Ans] = []
@@ -73,6 +76,14 @@ class FastMoneyControllerViewController: UIViewController, UITableViewDelegate, 
         }
         
         self.answerTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        let rightSound = NSBundle.mainBundle().URLForResource("correctanswer", withExtension: "wav")
+        do{
+            try	rightMus = AVAudioPlayer(contentsOfURL: rightSound!)
+        }catch{
+            
+        }
+        rightMus.numberOfLoops = 0
     }
     
     func generateQuestion(){
@@ -142,6 +153,8 @@ class FastMoneyControllerViewController: UIViewController, UITableViewDelegate, 
             })        }
     }
     @IBAction func submitAnswer(sender: UIButton){
+        rightMus.play()
+        
         var this_row = self.pickerView.selectedRowInComponent(0)
         value = answers[this_row].name
         let this_ans = answers.filter{ $0.name == value}.first

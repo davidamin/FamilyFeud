@@ -108,13 +108,13 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
         value = answers[0].name
         
         
-        let rightSound = NSBundle.mainBundle().URLForResource("rightanswer", withExtension: "wav")
+        let rightSound = NSBundle.mainBundle().URLForResource("correctanswer", withExtension: "wav")
         do{
             try	rightMus = AVAudioPlayer(contentsOfURL: rightSound!)
         }catch{
             
         }
-        rightMus.numberOfLoops = 1
+        rightMus.numberOfLoops = 0
         
         let wrongSound = NSBundle.mainBundle().URLForResource("wronganswer", withExtension: "wav")
         do{
@@ -122,7 +122,7 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
         }catch{
             
         }
-        wrongMus.numberOfLoops = 1
+        wrongMus.numberOfLoops = 0
         //bahDahDahDaah.play()        // Do any additional setup after loading the view.
     }
     
@@ -190,7 +190,9 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
                     game += this_score!
                     scoreLabel.text = String(score)
                     totalLabel.text = "Total:"  + String(game)
+                    rightMus.play()
                 }else{
+                    wrongMus.play()
                     if(wrong < 2){
                         wrong += 1
                         wrongLabel.text = wrongLabel.text! + "X"
