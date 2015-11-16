@@ -139,7 +139,7 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
         var cell:UITableViewCell = self.answerTable.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
         
         cell.textLabel?.text = self.items[indexPath.row].name + ": " + String(self.items[indexPath.row].score)
-        cell.backgroundColor = UIColor.blueColor()
+        cell.backgroundColor = UIColor.blackColor()
         cell.textLabel?.textColor = UIColor.whiteColor()
         return cell
     }
