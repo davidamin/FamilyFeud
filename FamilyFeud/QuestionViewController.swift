@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import CoreMotion
 import GameplayKit
+import AVFoundation
 
 class QuestionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
     class Ans{
@@ -37,8 +38,12 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var pickerView:UIPickerView!
     
-    lazy var motionManager = CMMotionManager()
+    var right = AVAudioPlayer()
     
+    var wrong = AVAudioPlayer()
+    
+    lazy var motionManager = CMMotionManager()
+
     var items: [Ans] = []
     var answers: [Ans] = []
     var userStr = "User"
@@ -101,9 +106,25 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
         
         self.answerTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         value = answers[0].name
-        // Do any additional setup after loading the view.
+        
+        
+        /*let rightSound = NSBundle.mainBundle().URLForResource("right", withExtension: "mp3")
+        do{
+            try	right = AVAudioPlayer(contentsOfURL: rightSound!)
+        }catch{
+            
+        }
+        right.numberOfLoops = 1
+        
+        let wrongSound = NSBundle.mainBundle().URLForResource("wrong", withExtension: "mp3")
+        do{
+            try	wrong = AVAudioPlayer(contentsOfURL: wrongSound!)
+        }catch{
+            
+        }
+        wrong.numberOfLoops = 1      */  //bahDahDahDaah.play()        // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

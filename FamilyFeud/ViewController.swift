@@ -81,7 +81,8 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
             
         }
         bahDahDahDaah.numberOfLoops = -1
-                bahDahDahDaah.play()
+        bahDahDahDaah.volume = 0.5
+        bahDahDahDaah.play()
     }
     
     func createLocationManager(startImmediately startImmediately: Bool){
