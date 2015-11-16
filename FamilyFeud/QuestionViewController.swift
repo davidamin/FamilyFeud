@@ -38,9 +38,9 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var pickerView:UIPickerView!
     
-    var right = AVAudioPlayer()
+    var rightMus = AVAudioPlayer()
     
-    var wrong = AVAudioPlayer()
+    var wrongMus = AVAudioPlayer()
     
     lazy var motionManager = CMMotionManager()
 
@@ -108,21 +108,22 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
         value = answers[0].name
         
         
-        /*let rightSound = NSBundle.mainBundle().URLForResource("right", withExtension: "mp3")
+        let rightSound = NSBundle.mainBundle().URLForResource("rightanswer", withExtension: "wav")
         do{
-            try	right = AVAudioPlayer(contentsOfURL: rightSound!)
+            try	rightMus = AVAudioPlayer(contentsOfURL: rightSound!)
         }catch{
             
         }
-        right.numberOfLoops = 1
+        rightMus.numberOfLoops = 1
         
-        let wrongSound = NSBundle.mainBundle().URLForResource("wrong", withExtension: "mp3")
+        let wrongSound = NSBundle.mainBundle().URLForResource("wronganswer", withExtension: "wav")
         do{
-            try	wrong = AVAudioPlayer(contentsOfURL: wrongSound!)
+            try	wrongMus = AVAudioPlayer(contentsOfURL: wrongSound!)
         }catch{
             
         }
-        wrong.numberOfLoops = 1      */  //bahDahDahDaah.play()        // Do any additional setup after loading the view.
+        wrongMus.numberOfLoops = 1
+        //bahDahDahDaah.play()        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
@@ -138,7 +139,8 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
         var cell:UITableViewCell = self.answerTable.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
         
         cell.textLabel?.text = self.items[indexPath.row].name + ": " + String(self.items[indexPath.row].score)
-        
+        cell.backgroundColor = UIColor.blueColor()
+        cell.textLabel?.textColor = UIColor.whiteColor()
         return cell
     }
     
