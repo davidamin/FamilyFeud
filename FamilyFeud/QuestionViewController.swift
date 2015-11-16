@@ -38,14 +38,15 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var pickerView:UIPickerView!
     
-    var right = AVAudioPlayer()
+    var rightMus = AVAudioPlayer()
     
-    var wrong = AVAudioPlayer()
+    var wrongMus = AVAudioPlayer()
     
     lazy var motionManager = CMMotionManager()
 
     var items: [Ans] = []
     var answers: [Ans] = []
+    var right: [Ans] = []
     var userStr = "User"
     var value = ""
     var score = 0
@@ -78,6 +79,9 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
                 var tempAns = a["answer"] as? String
                 var tempScore = a["score"] as? String
                 self.answers.append(Ans(n:tempAns!,s:Int(tempScore!)!))
+                if(Int(tempScore!)! > 0){
+                    self.right.append(Ans(n:tempAns!,s:Int(tempScore!)!))
+                }
             }
                 self.answers = (GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(self.answers) as? [Ans])!
                 self.pickerView.reloadAllComponents()
@@ -108,21 +112,21 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
         value = answers[0].name
         
         
-        /*let rightSound = NSBundle.mainBundle().URLForResource("right", withExtension: "mp3")
+        let rightSound = NSBundle.mainBundle().URLForResource("correctanswer", withExtension: "wav")
         do{
-            try	right = AVAudioPlayer(contentsOfURL: rightSound!)
+            try	rightMus = AVAudioPlayer(contentsOfURL: rightSound!)
         }catch{
             
         }
-        right.numberOfLoops = 1
+        rightMus.numberOfLoops = 0
         
-        let wrongSound = NSBundle.mainBundle().URLForResource("wrong", withExtension: "mp3")
+        let wrongSound = NSBundle.mainBundle().URLForResource("wronganswer", withExtension: "wav")
         do{
-            try	wrong = AVAudioPlayer(contentsOfURL: wrongSound!)
+            try	wrongMus = AVAudioPlayer(contentsOfURL: wrongSound!)
         }catch{
             
         }
-        wrong.numberOfLoops = 1      */  //bahDahDahDaah.play()        // Do any additional setup after loading the view.
+        wrongMus.numberOfLoops = 0
     }
     
     override func didReceiveMemoryWarning() {
@@ -138,7 +142,8 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
         var cell:UITableViewCell = self.answerTable.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
         
         cell.textLabel?.text = self.items[indexPath.row].name + ": " + String(self.items[indexPath.row].score)
-        
+        cell.backgroundColor = UIColor.blackColor()
+        cell.textLabel?.textColor = UIColor.whiteColor()
         return cell
     }
     
@@ -178,7 +183,7 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
         var this_row = self.pickerView.selectedRowInComponent(0)
         value = answers[this_row].name
         if (value != ""){
-            //This is like an extremely shit way to do things, fix next sprint
+
             let this_ans = answers.filter{ $0.name == value}.first
             
                 let this_score = this_ans?.score
@@ -188,7 +193,9 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
                     game += this_score!
                     scoreLabel.text = String(score)
                     totalLabel.text = "Total:"  + String(game)
+                    rightMus.play()
                 }else{
+                    wrongMus.play()
                     if(wrong < 2){
                         wrong += 1
                         wrongLabel.text = wrongLabel.text! + "X"
@@ -235,6 +242,7 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
             destinationVC.life = lifetime + score
             destinationVC.round = round + 1
             destinationVC.used = used
+            destinationVC.answers = self.right
         }
     }
     /*

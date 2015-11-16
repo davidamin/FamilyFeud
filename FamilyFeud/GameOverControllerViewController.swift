@@ -10,15 +10,23 @@ import UIKit
 
 class GameOverControllerViewController: UIViewController {
 
+    @IBOutlet weak var questionLabel: UILabel!
+    
+    @IBOutlet weak var fastLabel: UILabel!
+    
     @IBOutlet weak var gameLabel: UILabel!
     
     @IBOutlet weak var lifeLabel: UILabel!
     
+    var questionTotal = 0
+    var fastMoneyTotal = 0
     var gameTotal = 0
     var lifeTotal = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        questionLabel.text = String(questionTotal)
+        fastLabel.text = String(fastMoneyTotal)
         gameLabel.text = String(gameTotal)
         lifeLabel.text = String(lifeTotal)
         // Do any additional setup after loading the view.
