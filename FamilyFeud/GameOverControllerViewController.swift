@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class GameOverControllerViewController: UIViewController {
 
@@ -22,6 +23,7 @@ class GameOverControllerViewController: UIViewController {
     var fastMoneyTotal = 0
     var gameTotal = 0
     var lifeTotal = 0
+    var userStr: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,22 @@ class GameOverControllerViewController: UIViewController {
         fastLabel.text = String(fastMoneyTotal)
         gameLabel.text = String(gameTotal)
         lifeLabel.text = String(lifeTotal)
+        
+        let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        let fetchRequest = NSFetchRequest(entityName: "User")
+        let predicate = NSPredicate(format: "name == %@", userStr)
+        
+        fetchRequest.predicate = predicate
+        do {
+            let results =
+            try managedObjectContext.executeFetchRequest(fetchRequest) as! [User]
+            if(results.count > 0){
+                results[0].highScore = NSNumber(integer: lifeTotal)
+            }
+            try managedObjectContext.save()
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
         // Do any additional setup after loading the view.
     }
 

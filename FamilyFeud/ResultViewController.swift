@@ -91,6 +91,7 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if let destinationVC = segue.destinationViewController as? FastMoneyControllerViewController{
             destinationVC.lifetime = life
             destinationVC.prior = game
+            destinationVC.userStr = username
         }
     }
 

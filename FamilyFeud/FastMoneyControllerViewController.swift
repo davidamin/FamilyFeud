@@ -45,6 +45,7 @@ class FastMoneyControllerViewController: UIViewController, UITableViewDelegate, 
     var total = 0
     var lifetime = 0
     var prior = 0
+    var userStr: String = ""
     var used: [Int] = []
     
     override func viewDidLoad() {
@@ -194,6 +195,7 @@ class FastMoneyControllerViewController: UIViewController, UITableViewDelegate, 
             destinationVC.fastMoneyTotal = total
             destinationVC.gameTotal = total + prior
             destinationVC.lifeTotal = lifetime + total
+            destinationVC.userStr = userStr
         }
     }
 }
