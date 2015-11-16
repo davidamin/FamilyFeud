@@ -67,7 +67,7 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     @IBAction func submitAnswer(sender: UIButton){
-        print(round)
+        //print(round)
         if(round > 2){
         performSegueWithIdentifier("ResultToFastSegue", sender: nil)
         }else{
