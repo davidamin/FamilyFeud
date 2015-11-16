@@ -46,6 +46,7 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
 
     var items: [Ans] = []
     var answers: [Ans] = []
+    var right: [Ans] = []
     var userStr = "User"
     var value = ""
     var score = 0
@@ -78,6 +79,9 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
                 var tempAns = a["answer"] as? String
                 var tempScore = a["score"] as? String
                 self.answers.append(Ans(n:tempAns!,s:Int(tempScore!)!))
+                if(Int(tempScore!)! > 0){
+                    self.right.append(Ans(n:tempAns!,s:Int(tempScore!)!))
+                }
             }
                 self.answers = (GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(self.answers) as? [Ans])!
                 self.pickerView.reloadAllComponents()
@@ -123,7 +127,6 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
             
         }
         wrongMus.numberOfLoops = 0
-        //bahDahDahDaah.play()        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
@@ -180,7 +183,7 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
         var this_row = self.pickerView.selectedRowInComponent(0)
         value = answers[this_row].name
         if (value != ""){
-            //This is like an extremely shit way to do things, fix next sprint
+
             let this_ans = answers.filter{ $0.name == value}.first
             
                 let this_score = this_ans?.score
@@ -239,6 +242,7 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
             destinationVC.life = lifetime + score
             destinationVC.round = round + 1
             destinationVC.used = used
+            destinationVC.answers = self.right
         }
     }
     /*

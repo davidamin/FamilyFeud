@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ResultViewController: UIViewController {
+class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var nextBtn: UIButton!
     
     @IBOutlet weak var scoreLabel: UILabel!
@@ -17,6 +17,8 @@ class ResultViewController: UIViewController {
     
     @IBOutlet weak var lifeLabel: UILabel!
     
+    @IBOutlet weak var answerTable: UITableView!
+    
     var username = "User"
     
     var score = 0
@@ -24,7 +26,8 @@ class ResultViewController: UIViewController {
     var life = 0
     var round = 0
     var used : [Int] = []
-
+    var answers: [QuestionViewController.Ans] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,10 +38,29 @@ class ResultViewController: UIViewController {
         if(round > 2){
             nextBtn.setTitle("Fast Money!", forState: UIControlState.Normal)
         }
-
+        self.answerTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        answers = answers.sort{$0.score > $1.score}
         // Do any additional setup after loading the view.
     }
-
+    
+    func tableView(answerTable: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.answers.count
+    }
+    
+    func tableView(answerTable: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell:UITableViewCell = self.answerTable.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
+        
+        cell.textLabel?.text = self.answers[indexPath.row].name + ": " + String(self.answers[indexPath.row].score)
+        cell.backgroundColor = UIColor.blackColor()
+        cell.textLabel?.textColor = UIColor.whiteColor()
+        return cell
+    }
+    
+    func tableView(answerTable: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //print("You selected cell #\(indexPath.row)!")
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -61,6 +83,7 @@ class ResultViewController: UIViewController {
         }
         if let destinationVC = segue.destinationViewController as? FastMoneyControllerViewController{
             destinationVC.lifetime = life
+            destinationVC.prior = game
         }
     }
 

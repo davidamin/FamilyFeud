@@ -5,7 +5,7 @@
 },
 {
 "question": "TELL ME WHAT LUNCH COSTS AT A FAST-FOOD RESTAURANT:",
-"answers" : [{"answer": "$5.00", "score": "39"},{"answer": "$4.00", "score": "32"},{"answer": "$3.00", "score": "19"},{"answer": "$3.50", "score": "14"},{"answer": "$2.50", "score": "4"},{"answer": "3.75", "score": "3"},{"answer": "3.25", "score": "3"}]
+"answers" : [{"answer": "$5.00", "score": "39"},{"answer": "$4.00", "score": "32"},{"answer": "$3.00", "score": "19"},{"answer": "$3.50", "score": "14"},{"answer": "$2.50", "score": "4"},{"answer": "$3.75", "score": "3"},{"answer": "$3.25", "score": "3"}]
 },
 {
 "question": "NAME THE SEASON WHEN THE MOST CRIMES OCCUR:",

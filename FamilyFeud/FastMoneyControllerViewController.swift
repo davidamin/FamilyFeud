@@ -44,6 +44,7 @@ class FastMoneyControllerViewController: UIViewController, UITableViewDelegate, 
     
     var total = 0
     var lifetime = 0
+    var prior = 0
     var used: [Int] = []
     
     override func viewDidLoad() {
@@ -69,7 +70,7 @@ class FastMoneyControllerViewController: UIViewController, UITableViewDelegate, 
                 var tempScore = a["score"] as? String
                 self.answers.append(Ans(n:tempAns!,s:Int(tempScore!)!))
             }
-            self.answers = (GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(self.answers) as? [Ans])!
+            //self.answers = (GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(self.answers) as? [Ans])!
             self.pickerView.reloadAllComponents()
         }catch{
             
@@ -141,18 +142,8 @@ class FastMoneyControllerViewController: UIViewController, UITableViewDelegate, 
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         //value = answers[row].name
     }
-    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
-        if motion == .MotionShake {
-            self.answers = (GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(self.answers) as? [Ans])!
-            //self.answers = self.answers.sort(){_,_ in arc4random() % 2 == 0}
-            self.pickerView.reloadAllComponents()
-            self.pickerView.alpha = 0.0
-            UIView.animateWithDuration(2.0, delay: 0.0, options: .CurveEaseOut, animations: {
-                self.pickerView.alpha = 1.0
-                }, completion: {_ in
-            })        }
-    }
     @IBAction func submitAnswer(sender: UIButton){
+        if(questionIndex < 5){
         rightMus.play()
         
         var this_row = self.pickerView.selectedRowInComponent(0)
@@ -172,14 +163,19 @@ class FastMoneyControllerViewController: UIViewController, UITableViewDelegate, 
         self.pickerView.reloadAllComponents()
             
         self.answerTable.reloadData()
+        }
         
         questionIndex++
         
         //Load next question
-        if(questionIndex < 5){
-            generateQuestion()
-        }else{
+        if (questionIndex == 5){
+            submitBtn.setTitle("See My Final Score!", forState: UIControlState.Normal)
+            self.pickerView.hidden = true
+            self.questionLabel.text = "Fast Money Results!"
+        }else if(questionIndex > 5){
             performSegueWithIdentifier("GameOverSegue", sender: nil)
+        }else{
+            generateQuestion()
         }
 
     }
@@ -187,7 +183,9 @@ class FastMoneyControllerViewController: UIViewController, UITableViewDelegate, 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if let destinationVC = segue.destinationViewController as? GameOverControllerViewController{
-            destinationVC.gameTotal = total
+            destinationVC.questionTotal = prior
+            destinationVC.fastMoneyTotal = total
+            destinationVC.gameTotal = total + prior
             destinationVC.lifeTotal = lifetime + total
         }
     }
