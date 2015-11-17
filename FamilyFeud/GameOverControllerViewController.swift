@@ -42,6 +42,21 @@ class GameOverControllerViewController: UIViewController {
             try managedObjectContext.executeFetchRequest(fetchRequest) as! [User]
             if(results.count > 0){
                 results[0].highScore = NSNumber(integer: lifeTotal)
+                var gamesPlayed = Int(results[0].gamesPlayed)
+                gamesPlayed++
+                results[0].gamesPlayed = NSNumber(integer: gamesPlayed)
+                var bestGame = Int(results[0].bestGame)
+                var bestFast = Int(results[0].bestFast)
+                var bestTotal = Int(results[0].bestTotal)
+                if (questionTotal > bestGame){
+                    results[0].bestGame = NSNumber(integer: questionTotal)
+                }
+                if (fastMoneyTotal > bestFast){
+                    results[0].bestFast = NSNumber(integer: fastMoneyTotal)
+                }
+                if (gameTotal > bestTotal){
+                    results[0].bestTotal = NSNumber(integer: gameTotal)
+                }
             }
             try managedObjectContext.save()
         } catch let error as NSError {

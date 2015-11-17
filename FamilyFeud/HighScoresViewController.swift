@@ -10,12 +10,21 @@ import UIKit
 import CoreData
 
 class HighScoresViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+    @IBOutlet weak var questionsLabel: UILabel!
+    @IBOutlet weak var lifetimeLabel: UILabel!
+    @IBOutlet weak var fastLabel: UILabel!
+    @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var playedLabel: UILabel!
+    @IBOutlet weak var perfectLabel: UILabel!
+    @IBOutlet weak var averageLabel: UILabel!
     
     @IBOutlet weak var highLabel: UILabel!
     
     @IBOutlet weak var returnBtn: UIButton!
     
     @IBOutlet weak var highTable: UITableView!
+    
+    var name: String = ""
     
     var items: [String] = []
     
@@ -41,6 +50,28 @@ class HighScoresViewController: UIViewController, UITableViewDelegate, UITableVi
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }        // Do any additional setup after loading the view.
+        
+        let managedObjectContext2 = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        let fetchRequest2 = NSFetchRequest(entityName: "User")
+        let predicate2 = NSPredicate(format: "name == %@", name)
+        
+        fetchRequest2.predicate = predicate2
+        do {
+            let results2 =
+            try managedObjectContext2.executeFetchRequest(fetchRequest2) as! [User]
+            if(results2.count > 0){
+                questionsLabel.text = String(results2[0].bestGame)
+                playedLabel.text = String(results2[0].gamesPlayed)
+                perfectLabel.text = String(results2[0].perfectBoards)
+                lifetimeLabel.text = String(results2[0].highScore)
+                fastLabel.text = String(results2[0].bestFast)
+                totalLabel.text = String(results2[0].bestTotal)
+                var average = Int(results2[0].highScore) / Int(results2[0].gamesPlayed)
+                averageLabel.text = String(average)
+            }
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
     }
 
     override func didReceiveMemoryWarning() {

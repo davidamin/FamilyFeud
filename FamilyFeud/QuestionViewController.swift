@@ -235,6 +235,11 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
             try managedObjectContext.executeFetchRequest(fetchRequest) as! [User]
             if(results.count > 0){
                 results[0].highScore = NSNumber(integer: lifetime+score)
+                if(wrong == 0){
+                    var perfects = Int(results[0].perfectBoards)
+                    perfects += 1
+                    results[0].perfectBoards = NSNumber(integer: perfects)
+                }
             }
             try managedObjectContext.save()
         } catch let error as NSError {

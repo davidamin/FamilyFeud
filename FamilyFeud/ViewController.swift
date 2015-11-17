@@ -172,6 +172,9 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
             if let destinationVC = segue.destinationViewController as? QuestionViewController{
                 destinationVC.userStr = nameText.text!
             }
+            if let destinationVC = segue.destinationViewController as? HighScoresViewController{
+                destinationVC.name = nameText.text!
+            }
     }
 
 }
