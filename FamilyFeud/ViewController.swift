@@ -21,6 +21,8 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
     
     @IBOutlet weak var locLabel: UILabel!
     
+    var userStr = ""
+    
     var newPlayer = true
     
     var bahDahDahDaah = AVAudioPlayer()
@@ -34,6 +36,8 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         // Do any additional setup after loading the view, typically from a nib.
         nameText.delegate = self
         nameBtn.addTarget(self, action: "setName:", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        nameText.text = userStr
         
         //Location stuff
         if CLLocationManager.locationServicesEnabled(){

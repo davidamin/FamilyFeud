@@ -104,7 +104,7 @@ class FastMoneyControllerViewController: UIViewController, UITableViewDelegate, 
             var tempScore = a["score"] as? String
             self.answers.append(Ans(n:tempAns!,s:Int(tempScore!)!))
         }
-        self.answers = (GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(self.answers) as? [Ans])!
+        //self.answers = (GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(self.answers) as? [Ans])!
         self.pickerView.reloadAllComponents()    }
 
     override func didReceiveMemoryWarning() {

@@ -100,7 +100,12 @@ class HighScoresViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(answerTable: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("You selected cell #\(indexPath.row)!")
     }
-
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let destinationVC = segue.destinationViewController as? ViewController{
+            destinationVC.userStr = name
+        }
+    }
     /*
     // MARK: - Navigation
 
