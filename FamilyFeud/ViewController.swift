@@ -128,6 +128,7 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
     }
     
     @IBAction func setName(sender: UIButton){
+        nameText.resignFirstResponder()
         let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         
         //Let's check the database for a user with the name we just input
@@ -169,6 +170,7 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+            nameText.resignFirstResponder()
             if let destinationVC = segue.destinationViewController as? QuestionViewController{
                 destinationVC.userStr = nameText.text!
             }
