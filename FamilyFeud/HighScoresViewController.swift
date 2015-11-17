@@ -66,7 +66,13 @@ class HighScoresViewController: UIViewController, UITableViewDelegate, UITableVi
                 lifetimeLabel.text = String(results2[0].highScore)
                 fastLabel.text = String(results2[0].bestFast)
                 totalLabel.text = String(results2[0].bestTotal)
-                var average = Int(results2[0].highScore) / Int(results2[0].gamesPlayed)
+                var average:Float = 0.0
+                if(Int(results2[0].gamesPlayed)==0){
+                    average = 0
+                }
+                else{
+                    average = Float(Float(results2[0].highScore) / Float(results2[0].gamesPlayed))
+                }
                 averageLabel.text = String(average)
             }
         } catch let error as NSError {

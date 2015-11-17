@@ -1,62 +1,102 @@
-[
-{
-"question": "TELL ME HOW MANY POUNDS A NEWBORN WEIGHS:",
-"answers" : [{"answer": "6 LBS.", "score": "9"},{"answer": "6 1/2 LBS.", "score": "3"},{"answer": "7 LBS.", "score": "39"},{"answer": "7 1/2 LBS.", "score": "9"},{"answer": "8 LBS.", "score": "32"},{"answer": "9 LBS.", "score": "3"}]
-},
-{
-"question": "TELL ME WHAT LUNCH COSTS AT A FAST-FOOD RESTAURANT:",
-"answers" : [{"answer": "$2.50", "score": "4"},{"answer": "$3.00", "score": "19"},{"answer": "3.25", "score": "3"},{"answer": "$3.50", "score": "14"},{"answer": "3.75", "score": "3"},{"answer": "$4.00", "score": "32"},{"answer": "$5.00", "score": "39"}]
-},
-{
-"question": "NAME THE SEASON WHEN THE MOST CRIMES OCCUR:",
-"answers" : [{"answer": "CHRISTMAS", "score": "32"},{"answer": "WINTER", "score": "19"},{"answer": "SUMMER", "score": "45"},{"answer": "FALL", "score": "2"}]
-},	
-{
-"question": "NAME THE AGE WHEN MEN START LOSING THEIR HAIR:",
-"answers" : [{"answer": "25", "score": "10"},{"answer": "28", "score": "2"},{"answer": "30", "score": "22"},{"answer": "35", "score": "23"},{"answer": "40", "score": "25"},{"answer": "45", "score": "8"},{"answer": "50", "score": "3"}]
-},
-{
-"question": "HOW MANY ITEMS ARE ALLOWED IN A SUPERMARKET EXPRESS LANE?",
-"answers" : [{"answer": "6", "score": "3"},{"answer": "7", "score": "2"},{"answer": "8", "score": "18"},{"answer": "9", "score": "3"},{"answer": "10", "score": "44"},{"answer": "12", "score": "17"},{"answer": "15", "score": "11"}]
-},
-{
-"question": "NAME A THICK SOUP:",
-"answers" : [{"answer": "POTATO", "score": "10"},{"answer": "CLAM CHOWDER", "score": "18"},{"answer": "MUSHROOM", "score": "9"},{"answer": "BEAN", "score": "6"},{"answer": "VEGETABLE", "score": "6"},{"answer": "TOMATO", "score": "11"},{"answer": "CHILI", "score": "4"},{"answer": "PEA", "score": "36"}]
-},
-{
-"question": "TELL ME WHAT'S USUALLY THE MOVIE RATING OF YOUR FAVORITE MOVIES?:",
-"answers" : [{"answer": "G", "score": "8"},{"answer": "PG", "score": "32"},{"answer": "PG-13", "score": "20"},{"answer": "R", "score": "40"}]
-},
-{
-"question": "HOW MANY NIGHTS A WEEK DO YOU WATCH TV NEWS?:",
-"answers" : [{"answer": "0", "score": "2"},{"answer": "2", "score": "6"},{"answer": "3", "score": "10"},{"answer": "4", "score": "9"},{"answer": "5", "score": "40"},{"answer": "6", "score": "9"},{"answer": "7", "score": "23"}]
-},
-{
-"question": "NAME YOUR FAVORITE FATTENING FOOD:",
-"answers" : [{"answer": "CAKE/CHEESECAKE", "score": "15"},{"answer": "FRENCH FRIES", "score": "2"},{"answer": "ICE CREAM", "score": "32"},{"answer": "PIE", "score": "7"},{"answer": "PIZZA", "score": "14"},{"answer": "COOKIES", "score": "3"},{"answer": "CANDY/CHOCOLATE", "score": "13"}]
-},
-{
-"question": "NAME AN AWARDS SHOW:",
-"answers" : [{"answer": "COUNTRY MUSIC AWARDS", "score": "7"},{"answer": "ACADEMY AWARDS", "score": "55"},{"answer": "GRAMMY AWARDS", "score": "4"},{"answer": "EMMY AWARDS", "score": "31"},{"answer": "TONY AWARDS", "score": "3"}]
-},
-{
-"question": "NAME SOMEONE YOU STAND UP FOR WHEN THEY ENTER A ROOM:",
-"answers" : [{"answer": "PRESIDENT", "score": "25"},{"answer": "JUDGE", "score": "22"},{"answer": "WOMAN", "score": "21"},{"answer": "OLDER PERSON", "score": "12"},{"answer": "CLERGYMAN", "score": "10"},{"answer": "QUEEN", "score": "3"},{"answer": "GUEST", "score": "2"}]
-},
-{
-"question": "NAME A FOOD THAT WOULD ROLL ON THE FLOOR IF YOU DROPPED IT:",
-"answers" : [{"answer": "PEAS", "score": "14"},{"answer": "EGG", "score": "7"},{"answer": "ORANGE", "score": "31"},{"answer": "POTATO", "score": "4"},{"answer": "MEATBALL", "score": "6"},{"answer": "APPLE", "score": "21"},{"answer": "HOT DOG", "score": "4"}]
-},
-{
-"question": "NAME A KIND OF PERFORMING TALENT:",
-"answers" : [{"answer": "DANCING", "score": "27"},{"answer": "SINGING", "score": "52"},{"answer": "ACTING", "score": "9"},{"answer": "MUSICAL", "score": "8"}]
-},
-{
-"question": "NAME SOMETHING FOR WHICH KIDS SAVE MONEY:",
-"answers" : [{"answer": "PRESENTS", "score": "2"},{"answer": "CAR", "score": "10"},{"answer": "CANDY", "score": "20"},{"answer": "MOVIES", "score": "5"},{"answer": "CD", "score": "5"},{"answer": "BICYCLE", "score": "45"},{"answer": "TOYS", "score": "7"}]
-},
-{
-"question": "NAME SOMETHING USED TO KEEP SHEETS OF PAPER TOGETHER:",
-"answers" : [{"answer": "GLUE", "score": "3"},{"answer": "STAPLE", "score": "43"},{"answer": "PAPER CLIP", "score": "48"},{"answer": "NOTEBOOK", "score": "2"},{"answer": "PAPERWEIGHT", "score": "2"}]
-}
-]
+ [
+  {
+  "question": "TELL ME HOW MANY POUNDS A NEWBORN WEIGHS:",
+  "answers" : [{"answer": "6 LBS.", "score": "9"},{"answer": "6 1/2 LBS.", "score": "3"},{"answer": "7 LBS.", "score": "39"},{"answer": "7 1/2 LBS.", "score": "9"},{"answer": "8 LBS.", "score": "32"},{"answer": "9 LBS.", "score": "3"}]
+  },
+  {
+  "question": "TELL ME WHAT LUNCH COSTS AT A FAST-FOOD RESTAURANT:",
+  "answers" : [{"answer": "$2.50", "score": "4"},{"answer": "$3.00", "score": "19"},{"answer": "$3.25", "score": "3"},{"answer": "$3.50", "score": "14"},{"answer": "$3.75", "score": "3"},{"answer": "$4.00", "score": "32"},{"answer": "$5.00", "score": "39"}]
+  },
+  {
+  "question": "NAME THE SEASON WHEN THE MOST CRIMES OCCUR:",
+  "answers" : [{"answer": "CHRISTMAS", "score": "32"},{"answer": "WINTER", "score": "19"},{"answer": "SUMMER", "score": "45"},{"answer": "FALL", "score": "2"}]
+  },
+  {
+  "question": "NAME THE AGE WHEN MEN START LOSING THEIR HAIR:",
+  "answers" : [{"answer": "25", "score": "10"},{"answer": "28", "score": "2"},{"answer": "30", "score": "22"},{"answer": "35", "score": "23"},{"answer": "40", "score": "25"},{"answer": "45", "score": "8"},{"answer": "50", "score": "3"}]
+  },
+  {
+  "question": "HOW MANY ITEMS ARE ALLOWED IN A SUPERMARKET EXPRESS LANE?",
+  "answers" : [{"answer": "6", "score": "3"},{"answer": "7", "score": "2"},{"answer": "8", "score": "18"},{"answer": "9", "score": "3"},{"answer": "10", "score": "44"},{"answer": "12", "score": "17"},{"answer": "15", "score": "11"}]
+  },
+  {
+  "question": "NAME A THICK SOUP:",
+  "answers" : [{"answer": "POTATO", "score": "10"},{"answer": "CLAM CHOWDER", "score": "18"},{"answer": "MUSHROOM", "score": "9"},{"answer": "BEAN", "score": "6"},{"answer": "VEGETABLE", "score": "6"},{"answer": "TOMATO", "score": "11"},{"answer": "CHILI", "score": "4"},{"answer": "PEA", "score": "36"}]
+  },
+  {
+  "question": "TELL ME WHAT'S USUALLY THE MOVIE RATING OF YOUR FAVORITE MOVIES?:",
+  "answers" : [{"answer": "G", "score": "8"},{"answer": "PG", "score": "32"},{"answer": "PG-13", "score": "20"},{"answer": "R", "score": "40"}]
+  },
+  {
+  "question": "HOW MANY NIGHTS A WEEK DO YOU WATCH TV NEWS?:",
+  "answers" : [{"answer": "0", "score": "2"},{"answer": "2", "score": "6"},{"answer": "3", "score": "10"},{"answer": "4", "score": "9"},{"answer": "5", "score": "40"},{"answer": "6", "score": "9"},{"answer": "7", "score": "23"}]
+  },
+  {
+  "question": "NAME YOUR FAVORITE FATTENING FOOD:",
+  "answers" : [{"answer": "CAKE/CHEESECAKE", "score": "15"},{"answer": "FRENCH FRIES", "score": "2"},{"answer": "ICE CREAM", "score": "32"},{"answer": "PIE", "score": "7"},{"answer": "PIZZA", "score": "14"},{"answer": "COOKIES", "score": "3"},{"answer": "CANDY/CHOCOLATE", "score": "13"}]
+  },
+  {
+  "question": "NAME AN AWARDS SHOW:",
+  "answers" : [{"answer": "COUNTRY MUSIC AWARDS", "score": "7"},{"answer": "ACADEMY AWARDS", "score": "55"},{"answer": "GRAMMY AWARDS", "score": "4"},{"answer": "EMMY AWARDS", "score": "31"},{"answer": "TONY AWARDS", "score": "3"}]
+  },
+  {
+  "question": "NAME SOMEONE YOU STAND UP FOR WHEN THEY ENTER A ROOM:",
+  "answers" : [{"answer": "PRESIDENT", "score": "25"},{"answer": "JUDGE", "score": "22"},{"answer": "WOMAN", "score": "21"},{"answer": "OLDER PERSON", "score": "12"},{"answer": "CLERGYMAN", "score": "10"},{"answer": "QUEEN", "score": "3"},{"answer": "GUEST", "score": "2"}]
+  },
+  {
+  "question": "NAME A FOOD THAT WOULD ROLL ON THE FLOOR IF YOU DROPPED IT:",
+  "answers" : [{"answer": "PEAS", "score": "14"},{"answer": "EGG", "score": "7"},{"answer": "ORANGE", "score": "31"},{"answer": "POTATO", "score": "4"},{"answer": "MEATBALL", "score": "6"},{"answer": "APPLE", "score": "21"},{"answer": "HOT DOG", "score": "4"}]
+  },
+  {
+  "question": "NAME A KIND OF PERFORMING TALENT:",
+  "answers" : [{"answer": "DANCING", "score": "27"},{"answer": "SINGING", "score": "52"},{"answer": "ACTING", "score": "9"},{"answer": "MUSICAL", "score": "8"}]
+  },
+  {
+  "question": "NAME SOMETHING FOR WHICH KIDS SAVE MONEY:",
+  "answers" : [{"answer": "PRESENTS", "score": "2"},{"answer": "CAR", "score": "10"},{"answer": "CANDY", "score": "20"},{"answer": "MOVIES", "score": "5"},{"answer": "CD", "score": "5"},{"answer": "BICYCLE", "score": "45"},{"answer": "TOYS", "score": "7"}]
+  },
+  {
+  "question": "NAME SOMETHING USED TO KEEP SHEETS OF PAPER TOGETHER:",
+  "answers" : [{"answer": "GLUE", "score": "3"},{"answer": "STAPLE", "score": "43"},{"answer": "PAPER CLIP", "score": "48"},{"answer": "NOTEBOOK", "score": "2"},{"answer": "PAPERWEIGHT", "score": "2"}]
+  },
+  {
+  "question": "HOW LONG IS A LONG SHOWER?:",
+  "answers" : [{"answer": "10 MINUTES", "score": "20"},{"answer": "15 MINUTES", "score": "9"},{"answer": "20 MINUTES", "score": "34"},{"answer": "30 MINUTES", "score": "27"},{"answer": "45 MINUTES", "score": "2"},{"answer": "60 MINUTES", "score": "4"}]
+  },
+  {
+  "question": "NAME SOMETHING MOVERS BREAK:",
+  "answers" : [{"answer": "LAMP", "score": "24"},{"answer": "GLASSES", "score": "7"},{"answer": "MIRROR", "score": "21"},{"answer": "DISHES/CHINA", "score": "39"},{"answer": "VASE", "score": "2"},{"answer": "TABLES", "score": "3"}]
+  },
+  {
+  "question": "NAME THE ROOM IN YOUR HOUSE WITH THE MOST WINDOWS:",
+  "answers" : [{"answer": "FAMILY ROOM/DEN", "score": "15"},{"answer": "KITCHEN", "score": "20"},{"answer": "SUN ROOM", "score": "2"},{"answer": "DINING ROOM", "score": "4"},{"answer": "BEDROOM", "score": "6"},{"answer": "LIVING ROOM", "score": "52"}]
+  },
+  {
+  "question": "NAME SOMETHING PEOPLE BUY ON CREDIT:",
+  "answers" : [{"answer": "APPLIANCES", "score": "3"},{"answer": "HOUSE", "score": "10"},{"answer": "CAR", "score": "46"},{"answer": "FURNITURE", "score": "15"},{"answer": "GAS", "score": "3"},{"answer": "TV", "score": "3"},{"answer": "CLOTHES", "score": "19"}]
+  },
+  {
+  "question": "NAME A STATE WHERE PEOPLE GO TO EXPERIENCE THE GREAT OUTDOORS:",
+  "answers" : [{"answer": "ALASKA", "score": "7"},{"answer": "ARIZONA", "score": "7"},{"answer": "CALIFORNIA", "score": "2"},{"answer": "COLORADO", "score": "34"},{"answer": "FLORIDA", "score": "5"},{"answer": "HAWAII", "score": "2"},{"answer": "MINNESOTA", "score": "2"},{"answer": "MONTANA", "score": "15"},{"answer": "WISCONSIN", "score": "3"},{"answer": "WYOMING", "score": "13"}]
+  },
+  {
+  "question": "REAL OR FICTIONAL; NAME A WELL KNOWN SAM:",
+  "answers" : [{"answer": "YOSEMITE SAM", "score": "4"},{"answer": "SAM HOUSTON", "score": "4"},{"answer": "SAM MALONE", "score": "3"},{"answer": "SAM ELLIOT", "score": "2"},{"answer": "UNCLE SAM", "score": "11"},{"answer": "SAM SPADE", "score": "11"},{"answer": "SAMUEL ADAMS", "score": "2"},{"answer": "SON OF SAM", "score": "3"},{"answer": "SAM DONALDSON", "score": "2"},{"answer": "SAM WALTON", "score": "13"}]
+  },
+  {
+  "question": "NAME A FOOD SERVED AT LADIES' LUNCHEON:",
+  "answers" : [{"answer": "SANDWICHES", "score": "28"},{"answer": "CHICKEN SALAD", "score": "10"},{"answer": "CHICKEN", "score": "6"},{"answer": "TUNA SALAD", "score": "2"},{"answer": "CAKE", "score": "2"},{"answer": "SALAD", "score": "28"},{"answer": "CHEESE AND CRACKERS", "score": "2"},{"answer": "COOKIES", "score": "2"},{"answer": "VEGETABLES", "score": "2"},{"answer": "QUICHE", "score": "9"}]
+  },
+  {
+  "question": "NAME A PLACE WHERE WOMEN GO TO GET AWAY FROM THEIR HUSBANDS:",
+  "answers" : [{"answer": "KITCHEN", "score": "2"},{"answer": "NIGHTCLUB", "score": "3"},{"answer": "MOTHER'S HOUSE", "score": "3"},{"answer": "HEALTH SPA", "score": "12"},{"answer": "SHOPPING/STORE", "score": "44"},{"answer": "BEAUTY PARLOR", "score": "21"},{"answer": "FRIEND'S HOUSE", "score": "3"},{"answer": "BAR", "score": "2"},{"answer": "BATHROOM", "score": "2"}]
+  },
+  {
+  "question": "NAME THE BEST COLOR FOR A CAR INTERIOR:",
+  "answers" : [{"answer": "BEIGE", "score": "12"},{"answer": "BLUE", "score": "16"},{"answer": "TAN", "score": "8"},{"answer": "BROWN", "score": "10"},{"answer": "BLACK", "score": "20"},{"answer": "GREY", "score": "22"},{"answer": "MAROON", "score": "3"},{"answer": "RED", "score": "4"}]
+  },
+  {
+  "question": "NAME A SPECIFIC MEAT THAT'S GOOD FRIED:",
+  "answers" : [{"answer": "HAM", "score": "3"},{"answer": "PORK CHOP", "score": "10"},{"answer": "CKICKEN", "score": "47"},{"answer": "BACON", "score": "12"},{"answer": "HAMBURGER", "score": "18"},{"answer": "STEAK", "score": "5"}]
+  }
+  ]
