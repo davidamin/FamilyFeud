@@ -89,7 +89,7 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         bahDahDahDaah.play()
         
         
-        let postEndpoint: String = "http://gdrg.cs.virginia.edu/get_complete/2"
+        let postEndpoint: String = "http://ec2-54-174-16-239.compute-1.amazonaws.com"
         guard let url = NSURL(string: postEndpoint) else {
             print("Error: cannot create URL")
             return
@@ -123,12 +123,30 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
             // the post object is a dictionary
             // so we just access the title using the "title" key
             // so check for a title and print it if we have one
-            if let postTitle = post["ok"] as? String {
-                print("The title is: " + postTitle)
+            if let postTitle = post["user"] as? String {
+                self.nameLabel.text = postTitle
             }
         })
         task.resume()
         
+        
+        /*POST CODE
+        let postsEndpoint: String = "http://jsonplaceholder.typicode.com/posts"
+        guard let postsURL = NSURL(string: postsEndpoint) else {
+        print("Error: cannot create URL")
+        return
+        }
+        let postsUrlRequest = NSMutableURLRequest(URL: postsURL)
+        postsUrlRequest.HTTPMethod = "POST"
+        
+        let newPost: NSDictionary = ["title": "Frist Psot", "body": "I iz fisrt", "userId": 1]
+        do {
+        let jsonPost = try NSJSONSerialization.dataWithJSONObject(newPost, options: [])
+        postsUrlRequest.HTTPBody = jsonPost
+        } catch {
+        print("Error: cannot create JSON from post")
+        }
+        */
     }
     
     func createLocationManager(startImmediately startImmediately: Bool){
