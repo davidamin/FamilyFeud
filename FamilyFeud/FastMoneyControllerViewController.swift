@@ -56,7 +56,7 @@ class FastMoneyControllerViewController: UIViewController, UITableViewDelegate, 
         let path = NSBundle.mainBundle().pathForResource("fastmoney", ofType: "json")
         
         do{
-            var jsonData = try NSData(contentsOfFile: path!, options: NSDataReadingOptions.DataReadingMappedIfSafe)
+            /*var jsonData = try NSData(contentsOfFile: path!, options: NSDataReadingOptions.DataReadingMappedIfSafe)
             
             jsonDict = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers) as! NSArray
             //print(jsonDict)
@@ -70,9 +70,60 @@ class FastMoneyControllerViewController: UIViewController, UITableViewDelegate, 
                 var tempAns = a["answer"] as? String
                 var tempScore = a["score"] as? String
                 self.answers.append(Ans(n:tempAns!,s:Int(tempScore!)!))
-            }
+            }*/
             //self.answers = (GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(self.answers) as? [Ans])!
-            self.pickerView.reloadAllComponents()
+            //self.pickerView.reloadAllComponents()
+            
+            
+            let postEndpoint: String = "http://ec2-54-174-16-239.compute-1.amazonaws.com/get_fast"
+            guard let url = NSURL(string: postEndpoint) else {
+                print("Error: cannot create URL")
+                return
+            }
+            let urlRequest = NSURLRequest(URL: url)
+            let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+            let session = NSURLSession(configuration: config)
+            let task = session.dataTaskWithRequest(urlRequest, completionHandler: { (data, response, error) in
+                guard let responseData = data else {
+                    print("Error: did not receive data")
+                    return
+                }
+                guard error == nil else {
+                    print("error calling GET")
+                    print(error)
+                    return
+                }
+                //self.nameLabel.text = String(responseData)
+                //parse the result as JSON, since that's what the API provides
+                let post: NSDictionary
+                do {
+                    post = try NSJSONSerialization.JSONObjectWithData(responseData,
+                        options: []) as! NSDictionary
+                } catch  {
+                    print("error trying to convert data to JSON")
+                    return
+                }
+                // the post object is a dictionary
+                // so we just access the title using the "title" key
+                // so check for a title and print it if we have one
+                let question = post["question"] as? String
+                let ansArr = post["answers"] as? NSArray
+                
+                for a in ansArr!{
+                    var tempAns = a["answer"] as? String
+                    var tempScore = a["score"] as? String
+                    self.answers.append(Ans(n:tempAns!,s:Int(tempScore!)!))
+                }
+                
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.questionLabel.text = question
+                    self.answers = (GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(self.answers) as? [Ans])!
+                    self.pickerView.reloadAllComponents()
+                }
+            })
+            task.resume()
+            
+            
         }catch{
             
         }
@@ -90,7 +141,7 @@ class FastMoneyControllerViewController: UIViewController, UITableViewDelegate, 
     
     func generateQuestion(){
         self.answers.removeAll()
-        var randIndex = Int(arc4random_uniform(UInt32(jsonDict.count)))
+        /*var randIndex = Int(arc4random_uniform(UInt32(jsonDict.count)))
         while(used.contains(randIndex)){
             randIndex = Int(arc4random_uniform(UInt32(jsonDict.count)))
         }
@@ -105,7 +156,56 @@ class FastMoneyControllerViewController: UIViewController, UITableViewDelegate, 
             self.answers.append(Ans(n:tempAns!,s:Int(tempScore!)!))
         }
         //self.answers = (GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(self.answers) as? [Ans])!
-        self.pickerView.reloadAllComponents()    }
+        self.pickerView.reloadAllComponents()*/
+        
+        let postEndpoint: String = "http://ec2-54-174-16-239.compute-1.amazonaws.com/get_fast"
+        guard let url = NSURL(string: postEndpoint) else {
+            print("Error: cannot create URL")
+            return
+        }
+        let urlRequest = NSURLRequest(URL: url)
+        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+        let session = NSURLSession(configuration: config)
+        let task = session.dataTaskWithRequest(urlRequest, completionHandler: { (data, response, error) in
+            guard let responseData = data else {
+                print("Error: did not receive data")
+                return
+            }
+            guard error == nil else {
+                print("error calling GET")
+                print(error)
+                return
+            }
+            //self.nameLabel.text = String(responseData)
+            //parse the result as JSON, since that's what the API provides
+            let post: NSDictionary
+            do {
+                post = try NSJSONSerialization.JSONObjectWithData(responseData,
+                    options: []) as! NSDictionary
+            } catch  {
+                print("error trying to convert data to JSON")
+                return
+            }
+            // the post object is a dictionary
+            // so we just access the title using the "title" key
+            // so check for a title and print it if we have one
+            let question = post["question"] as? String
+            let ansArr = post["answers"] as? NSArray
+            
+            for a in ansArr!{
+                var tempAns = a["answer"] as? String
+                var tempScore = a["score"] as? String
+                self.answers.append(Ans(n:tempAns!,s:Int(tempScore!)!))
+            }
+            
+            dispatch_async(dispatch_get_main_queue()) {
+                self.questionLabel.text = question
+                self.answers = (GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(self.answers) as? [Ans])!
+                self.pickerView.reloadAllComponents()
+            }
+        })
+        task.resume()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -168,7 +268,7 @@ class FastMoneyControllerViewController: UIViewController, UITableViewDelegate, 
             
         answers = answers.filter{$0.name != value}
             
-        self.pickerView.reloadAllComponents()
+        //self.pickerView.reloadAllComponents()
             
         self.answerTable.reloadData()
         }
