@@ -32,7 +32,7 @@ class GameOverControllerViewController: UIViewController {
         gameLabel.text = String(gameTotal)
         lifeLabel.text = String(lifeTotal)
         
-        let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        /*let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         let fetchRequest = NSFetchRequest(entityName: "User")
         let predicate = NSPredicate(format: "name == %@", userStr)
         
@@ -61,7 +61,7 @@ class GameOverControllerViewController: UIViewController {
             try managedObjectContext.save()
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
-        }
+        }*/
         // Do any additional setup after loading the view.
     }
 

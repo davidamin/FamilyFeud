@@ -145,7 +145,7 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
         totalLabel.text = "Total:" + String(game)
         wrongLabel.text = ""
         
-        let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        /*let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         let fetchRequest = NSFetchRequest(entityName: "User")
         let predicate = NSPredicate(format: "name == %@", userStr)
         
@@ -158,7 +158,7 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
             }
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
-        }
+        }*/
         
         self.answerTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         //value = answers[0].name
@@ -277,7 +277,7 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        /*let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         let fetchRequest = NSFetchRequest(entityName: "User")
         let predicate = NSPredicate(format: "name == %@", userStr)
         
@@ -296,7 +296,7 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
             try managedObjectContext.save()
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
-        }
+        }*/
         
         if let destinationVC = segue.destinationViewController as? ResultViewController{
             destinationVC.username = userStr
