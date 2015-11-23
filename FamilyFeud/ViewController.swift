@@ -89,7 +89,7 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         bahDahDahDaah.play()
         
         
-        let postEndpoint: String = "http://ec2-54-174-16-239.compute-1.amazonaws.com"
+        /*let postEndpoint: String = "http://ec2-54-174-16-239.compute-1.amazonaws.com"
         guard let url = NSURL(string: postEndpoint) else {
             print("Error: cannot create URL")
             return
@@ -128,7 +128,7 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
             }
         })
         task.resume()
-        
+        */
         
         /*POST CODE
         let postsEndpoint: String = "http://jsonplaceholder.typicode.com/posts"
