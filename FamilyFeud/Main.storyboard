@@ -40,6 +40,9 @@
                                 <rect key="frame" x="183" y="222" width="117" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Log In"/>
+                                <connections>
+                                    <action selector="setName:" destination="BYZ-38-t0r" eventType="touchDown" id="0KD-BD-DVP"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" id="5Un-4Y-3CO">
                                 <rect key="frame" x="20" y="260" width="100" height="30"/>
@@ -47,12 +50,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zeb-rP-uH3">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zeb-rP-uH3">
                                 <rect key="frame" x="183" y="259" width="121" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="View High Scores"/>
                                 <connections>
-                                    <segue destination="IcO-a2-iWR" kind="modal" identifier="HighScoreSegue" id="VOY-s0-ODe"/>
+                                    <action selector="setName:" destination="BYZ-38-t0r" eventType="touchDown" id="rW9-hb-SDk"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -67,7 +70,9 @@
                         <outlet property="nameLabel" destination="J2w-io-ccH" id="wbV-xT-6vr"/>
                         <outlet property="nameText" destination="QZ5-8t-rdJ" id="WdW-9p-WAn"/>
                         <outlet property="passText" destination="5Un-4Y-3CO" id="Oxr-wM-QlO"/>
+                        <outlet property="scoreBtn" destination="zeb-rP-uH3" id="Duk-UF-4ol"/>
                         <segue destination="thY-Sf-AzQ" kind="modal" identifier="StartGameSegue" id="g4Y-rX-odO"/>
+                        <segue destination="IcO-a2-iWR" kind="modal" identifier="HighScoreSegue" id="3ke-iD-AmF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

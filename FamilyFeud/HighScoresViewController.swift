@@ -32,7 +32,57 @@ class HighScoresViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewDidLoad()
         self.highTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
-        let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        
+        let postEndpoint: String = "http://ec2-54-174-16-239.compute-1.amazonaws.com/get_high_scores"
+        guard let url = NSURL(string: postEndpoint) else {
+            print("Error: cannot create URL")
+            return
+        }
+        let urlRequest = NSURLRequest(URL: url)
+        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+        let session = NSURLSession(configuration: config)
+        let task = session.dataTaskWithRequest(urlRequest, completionHandler: { (data, response, error) in
+            guard let responseData = data else {
+                print("Error: did not receive data")
+                return
+            }
+            guard error == nil else {
+                print("error calling GET")
+                print(error)
+                return
+            }
+            //self.nameLabel.text = String(responseData)
+            //parse the result as JSON, since that's what the API provides
+            let post: NSDictionary
+            do {
+                post = try NSJSONSerialization.JSONObjectWithData(responseData,
+                    options: []) as! NSDictionary
+            } catch  {
+                print("error trying to convert data to JSON")
+                return
+            }
+            // the post object is a dictionary
+            // so we just access the title using the "title" key
+            // so check for a title and print it if we have one
+            let okay = post["ok"] as? Bool
+            let scores = post["scores"] as? NSArray
+            
+            for score in scores!{
+                //var tempName = score["name"] as? String
+                //var tempScore = score["score"] as? Int
+                if let tempName = score["name"] as? String{
+                    if let tempScore = score["score"] as? Int{
+                        self.items.append(tempName + ": " + String(tempScore))
+                    }
+                }
+            }
+            
+            dispatch_async(dispatch_get_main_queue()) {
+                self.highTable.reloadData()
+            }
+        })
+        task.resume()
+        /*let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         let fetchRequest = NSFetchRequest(entityName: "User")
         let sortDescriptor = NSSortDescriptor(key: "highScore", ascending: false)
         let sortDescriptors = [sortDescriptor]
@@ -77,7 +127,7 @@ class HighScoresViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
-        }
+        }*/
     }
 
     override func didReceiveMemoryWarning() {

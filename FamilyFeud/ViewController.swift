@@ -21,6 +21,8 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
     
     @IBOutlet weak var nameBtn: UIButton!
     
+    @IBOutlet weak var scoreBtn: UIButton!
+    
     @IBOutlet weak var locLabel: UILabel!
     
     var userStr = ""
@@ -197,9 +199,16 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
     
     @IBAction func setName(sender: UIButton){
         
+        if(sender.tag == 0){
         if(logged_in){
             self.performSegueWithIdentifier("StartGameSegue", sender: nil)
             return
+        }
+        }else{
+            if(logged_in){
+                self.performSegueWithIdentifier("HighScoreSegue", sender: nil)
+                return
+            }
         }
         let postEndpoint: String = "http://ec2-54-174-16-239.compute-1.amazonaws.com/add_user/"
         guard let url = NSURL(string: postEndpoint) else {
