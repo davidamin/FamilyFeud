@@ -91,6 +91,71 @@ class HighScoresViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         })
         task.resume()
+        
+        let dataEndpoint: String = "http://ec2-54-174-16-239.compute-1.amazonaws.com/get_user_data/"
+        guard let url2 = NSURL(string: dataEndpoint) else {
+            print("Error: cannot create URL")
+            return
+        }
+        
+        let url2Request = NSMutableURLRequest(URL: url2)
+        url2Request.HTTPMethod = "POST"
+        
+        do {
+            let dataString = "username=" + name
+            url2Request.HTTPBody = dataString.dataUsingEncoding(NSUTF8StringEncoding)
+        } catch {
+            print("Error: cannot create JSON from post")
+        }
+        let task2 = session.dataTaskWithRequest(url2Request, completionHandler: { (data, response, error) in
+            guard let responseData = data else {
+                print("Error: did not receive data")
+                return
+            }
+            guard error == nil else {
+                print("error calling GET")
+                print(error)
+                return
+            }
+            //self.nameLabel.text = String(responseData)
+            //parse the result as JSON, since that's what the API provides
+            let post: NSDictionary
+            do {
+                post = try NSJSONSerialization.JSONObjectWithData(responseData,
+                    options: []) as! NSDictionary
+            } catch  {
+                print("error trying to convert data to JSON")
+                print(String(responseData))
+                return
+            }
+            // now we have the post, let's just print it to prove we can access it
+            print("The post is: " + post.description)
+            
+            // the post object is a dictionary
+            // so we just access the title using the "title" key
+            // so check for a title and print it if we have one
+            if let valid = post["ok"] as? Bool{
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.lifetimeLabel.text = String((post["lifetime"] as? Int)!)
+                    self.totalLabel.text = String((post["high"] as? Int)!)
+                    self.questionsLabel.text = String((post["best_questions"] as? Int)!)
+                    self.fastLabel.text = String((post["best_fast"] as? Int)!)
+                    self.playedLabel.text = String((post["played"] as? Int)!)
+                    self.perfectLabel.text = String((post["perfect_boards"] as? Int)!)
+                    var average:Float = 0.0
+                    if((post["played"] as? Int)==0){
+                        average = 0
+                    }
+                    else{
+                        average = Float(Float((post["lifetime"] as? Int)!) / Float((post["played"] as? Int)!))
+                    }
+                    self.averageLabel.text = String(average)
+                }
+                //print(self.lifetime)
+                //self.performSegueWithIdentifier("StartGameSegue", sender: nil)
+            }
+        })
+        task2.resume()
         /*let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         let fetchRequest = NSFetchRequest(entityName: "User")
         let sortDescriptor = NSSortDescriptor(key: "highScore", ascending: false)
