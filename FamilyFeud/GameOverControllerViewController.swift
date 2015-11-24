@@ -33,6 +33,55 @@ class GameOverControllerViewController: UIViewController {
         gameLabel.text = String(gameTotal)
         lifeLabel.text = String(lifeTotal)
         
+        
+        let dataEndpoint: String = "http://ec2-54-174-16-239.compute-1.amazonaws.com/add_score/"
+        guard let url = NSURL(string: dataEndpoint) else {
+            print("Error: cannot create URL")
+            return
+        }
+        
+        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+        let session = NSURLSession(configuration: config)
+        
+        let urlRequest = NSMutableURLRequest(URL: url)
+        urlRequest.HTTPMethod = "POST"
+        
+        do {
+            let dataString = "username=" + userStr + "&questions=" + String(questionTotal) + "&fast=" + String(fastMoneyTotal) + "&perfect_boards=" + String(perfects)
+            urlRequest.HTTPBody = dataString.dataUsingEncoding(NSUTF8StringEncoding)
+        } catch {
+            print("Error: cannot create JSON from post")
+        }
+        let task = session.dataTaskWithRequest(urlRequest, completionHandler: { (data, response, error) in
+            guard let responseData = data else {
+                print("Error: did not receive data")
+                return
+            }
+            guard error == nil else {
+                print("error calling GET")
+                print(error)
+                return
+            }
+            //self.nameLabel.text = String(responseData)
+            //parse the result as JSON, since that's what the API provides
+            let post: NSDictionary
+            do {
+                post = try NSJSONSerialization.JSONObjectWithData(responseData,
+                    options: []) as! NSDictionary
+            } catch  {
+                print("error trying to convert data to JSON")
+                print(String(responseData))
+                return
+            }
+            // now we have the post, let's just print it to prove we can access it
+            print("The post is: " + post.description)
+            
+            // the post object is a dictionary
+            // so we just access the title using the "title" key
+            // so check for a title and print it if we have one
+        })
+        task.resume()
+        
         /*let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         let fetchRequest = NSFetchRequest(entityName: "User")
         let predicate = NSPredicate(format: "name == %@", userStr)

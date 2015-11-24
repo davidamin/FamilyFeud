@@ -143,7 +143,7 @@ class HighScoresViewController: UIViewController, UITableViewDelegate, UITableVi
                     self.playedLabel.text = String((post["played"] as? Int)!)
                     self.perfectLabel.text = String((post["perfect_boards"] as? Int)!)
                     var average:Float = 0.0
-                    if((post["played"] as? Int)==0){
+                    if((post["played"] as? Int) == 0){
                         average = 0
                     }
                     else{
