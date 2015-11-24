@@ -54,6 +54,7 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
     var game = 0
     var lifetime = 0
     var round = 0
+    var perfects = 0
     var used : [Int] = []
     
     override func viewDidLoad() {
@@ -136,6 +137,56 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
             })
             task.resume()
             
+            
+            let dataEndpoint: String = "http://ec2-54-174-16-239.compute-1.amazonaws.com/get_user_data/"
+            guard let url2 = NSURL(string: dataEndpoint) else {
+                print("Error: cannot create URL")
+                return
+            }
+            
+            let url2Request = NSMutableURLRequest(URL: url2)
+            url2Request.HTTPMethod = "POST"
+            
+            do {
+                let dataString = "username=" + userStr
+                url2Request.HTTPBody = dataString.dataUsingEncoding(NSUTF8StringEncoding)
+            } catch {
+                print("Error: cannot create JSON from post")
+            }
+            let task2 = session.dataTaskWithRequest(url2Request, completionHandler: { (data, response, error) in
+                guard let responseData = data else {
+                    print("Error: did not receive data")
+                    return
+                }
+                guard error == nil else {
+                    print("error calling GET")
+                    print(error)
+                    return
+                }
+                //self.nameLabel.text = String(responseData)
+                //parse the result as JSON, since that's what the API provides
+                let post: NSDictionary
+                do {
+                    post = try NSJSONSerialization.JSONObjectWithData(responseData,
+                        options: []) as! NSDictionary
+                } catch  {
+                    print("error trying to convert data to JSON")
+                    print(String(responseData))
+                    return
+                }
+                // now we have the post, let's just print it to prove we can access it
+                print("The post is: " + post.description)
+                
+                // the post object is a dictionary
+                // so we just access the title using the "title" key
+                // so check for a title and print it if we have one
+                if let valid = post["ok"] as? Bool{
+                    self.lifetime = (post["lifetime"] as? Int)! + self.game
+                    //print(self.lifetime)
+                    //self.performSegueWithIdentifier("StartGameSegue", sender: nil)
+                }
+            })
+            task2.resume()
             
         }catch{
             
@@ -306,6 +357,10 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
             destinationVC.round = round + 1
             destinationVC.used = used
             destinationVC.answers = self.right
+            if(wrong == 0){
+                perfects += 1
+            }
+            destinationVC.perfects = perfects
         }
     }
     /*

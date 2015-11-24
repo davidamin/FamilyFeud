@@ -10,6 +10,14 @@ import UIKit
 import CoreData
 
 class HighScoresViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+    class board{
+        var name: String = ""
+        var score: Int = 0
+        init(n: String, s: Int){
+            name = n
+            score = s
+        }
+    }
     @IBOutlet weak var questionsLabel: UILabel!
     @IBOutlet weak var lifetimeLabel: UILabel!
     @IBOutlet weak var fastLabel: UILabel!
@@ -26,7 +34,7 @@ class HighScoresViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var name: String = ""
     
-    var items: [String] = []
+    var items: [board] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,12 +80,13 @@ class HighScoresViewController: UIViewController, UITableViewDelegate, UITableVi
                 //var tempScore = score["score"] as? Int
                 if let tempName = score["name"] as? String{
                     if let tempScore = score["score"] as? Int{
-                        self.items.append(tempName + ": " + String(tempScore))
+                        self.items.append(board(n:tempName, s: tempScore))
                     }
                 }
             }
             
             dispatch_async(dispatch_get_main_queue()) {
+                self.items = self.items.sort({ $0.score > $1.score})
                 self.highTable.reloadData()
             }
         })
@@ -142,7 +151,7 @@ class HighScoresViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(answerTable: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell:UITableViewCell = self.highTable.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
         
-        cell.textLabel?.text = self.items[indexPath.row]
+        cell.textLabel?.text = self.items[indexPath.row].name + ": " + String(self.items[indexPath.row].score)
         
         return cell
     }

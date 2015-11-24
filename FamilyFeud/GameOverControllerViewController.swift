@@ -23,6 +23,7 @@ class GameOverControllerViewController: UIViewController {
     var fastMoneyTotal = 0
     var gameTotal = 0
     var lifeTotal = 0
+    var perfects = 0
     var userStr: String = ""
     
     override func viewDidLoad() {

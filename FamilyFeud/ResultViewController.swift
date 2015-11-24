@@ -25,6 +25,7 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var game = 0
     var life = 0
     var round = 0
+    var perfects = 0
     var used : [Int] = []
     var answers: [QuestionViewController.Ans] = []
     
@@ -87,11 +88,13 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
             destinationVC.game = game
             destinationVC.round = round
             destinationVC.used = used
+            destinationVC.perfects = perfects
         }
         if let destinationVC = segue.destinationViewController as? FastMoneyControllerViewController{
             destinationVC.lifetime = life
             destinationVC.prior = game
             destinationVC.userStr = username
+            destinationVC.perfects = perfects
         }
     }
 

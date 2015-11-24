@@ -45,6 +45,7 @@ class FastMoneyControllerViewController: UIViewController, UITableViewDelegate, 
     var total = 0
     var lifetime = 0
     var prior = 0
+    var perfects = 0
     var userStr: String = ""
     var used: [Int] = []
     
@@ -296,6 +297,7 @@ class FastMoneyControllerViewController: UIViewController, UITableViewDelegate, 
             destinationVC.gameTotal = total + prior
             destinationVC.lifeTotal = lifetime + total
             destinationVC.userStr = userStr
+            destinationVC.perfects = perfects
         }
     }
 }
