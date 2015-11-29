@@ -23,6 +23,7 @@
 		7C8731D61BD4169E00013E0B /* FamilyFeud.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7C8731D41BD4169E00013E0B /* FamilyFeud.xcdatamodeld */; };
 		7C8731D81BD4169E00013E0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C8731D71BD4169E00013E0B /* Assets.xcassets */; };
 		7C8731DB1BD4169F00013E0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C8731D91BD4169F00013E0B /* LaunchScreen.storyboard */; };
+		7C94F3A31C0B85BB00B82179 /* wrong.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C94F3A21C0B85BB00B82179 /* wrong.png */; };
 		7CBD02751BD589F7001E67CD /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD02741BD589F7001E67CD /* NotificationCenter.framework */; };
 		7CBD02781BD589F8001E67CD /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD02771BD589F8001E67CD /* TodayViewController.swift */; };
 		7CBD027B1BD589F8001E67CD /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CBD02791BD589F8001E67CD /* MainInterface.storyboard */; };
@@ -77,6 +78,7 @@
 		7C8731D71BD4169E00013E0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C8731DA1BD4169F00013E0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C8731DC1BD4169F00013E0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7C94F3A21C0B85BB00B82179 /* wrong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wrong.png; sourceTree = "<group>"; };
 		7CBD02721BD589F7001E67CD /* FamilyFeudWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FamilyFeudWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CBD02741BD589F7001E67CD /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		7CBD02771BD589F8001E67CD /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 		7C8731CC1BD4169E00013E0B /* FamilyFeud */ = {
 			isa = PBXGroup;
 			children = (
+				7C94F3A21C0B85BB00B82179 /* wrong.png */,
 				7CE018801BF9816900B84429 /* correctanswer.wav */,
 				7CE018811BF9816900B84429 /* wronganswer.wav */,
 				7CE0187E1BF97F7C00B84429 /* logo.jpg */,
@@ -267,6 +270,7 @@
 				7C8731D81BD4169E00013E0B /* Assets.xcassets in Resources */,
 				7CE543111BEFD129003A8B5E /* questions.json in Resources */,
 				7C2F30401BDDB1AF0020E168 /* theme.mp3 in Resources */,
+				7C94F3A31C0B85BB00B82179 /* wrong.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

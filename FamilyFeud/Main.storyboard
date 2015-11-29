@@ -282,13 +282,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yp7-zJ-EVW">
-                                <rect key="frame" x="227" y="84" width="68" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total: 199" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OWx-yT-235">
                                 <rect key="frame" x="52" y="92" width="75" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
@@ -296,6 +289,18 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wrong.png" id="zu8-sU-hEr">
+                                <rect key="frame" x="200" y="83" width="40" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wrong.png" id="1u5-qN-M8x">
+                                <rect key="frame" x="240" y="83" width="40" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wrong.png" id="Vdm-Tg-b8H">
+                                <rect key="frame" x="280" y="83" width="40" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -308,7 +313,9 @@
                         <outlet property="scoreLabel" destination="s9Y-3j-NZX" id="Coq-BS-rRj"/>
                         <outlet property="submitBtn" destination="cTU-Hr-9to" id="AD3-yW-LaJ"/>
                         <outlet property="totalLabel" destination="OWx-yT-235" id="YDh-lO-M9g"/>
-                        <outlet property="wrongLabel" destination="yp7-zJ-EVW" id="Qkc-5d-5Ly"/>
+                        <outlet property="wrong1" destination="zu8-sU-hEr" id="eIt-i2-EPu"/>
+                        <outlet property="wrong2" destination="1u5-qN-M8x" id="D4i-e0-zaS"/>
+                        <outlet property="wrong3" destination="Vdm-Tg-b8H" id="161-Af-fXe"/>
                         <segue destination="uCt-sb-2d6" kind="modal" identifier="ResultScreenSegue" id="8wv-qF-kBR"/>
                     </connections>
                 </viewController>
@@ -580,6 +587,7 @@
     </scenes>
     <resources>
         <image name="logo.jpg" width="296" height="170"/>
+        <image name="wrong.png" width="381" height="478"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="g4Y-rX-odO"/>

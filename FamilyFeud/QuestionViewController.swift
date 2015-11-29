@@ -30,7 +30,13 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var scoreLabel: UILabel!
     
-    @IBOutlet weak var wrongLabel: UILabel!
+    //@IBOutlet weak var wrongLabel: UILabel!
+    
+    @IBOutlet weak var wrong1 : UIImageView!
+    
+    @IBOutlet weak var wrong2 : UIImageView!
+    
+    @IBOutlet weak var wrong3 : UIImageView!
     
     @IBOutlet weak var submitBtn: UIButton!
     
@@ -194,7 +200,7 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
         
         contestantLabel.text = "Contestant: " + userStr
         totalLabel.text = "Total:" + String(game)
-        wrongLabel.text = ""
+        //wrongLabel.text = ""
         
         /*let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         let fetchRequest = NSFetchRequest(entityName: "User")
@@ -307,7 +313,15 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
                     wrongMus.play()
                     if(wrong < 2){
                         wrong += 1
-                        wrongLabel.text = wrongLabel.text! + "X"
+                        //wrongLabel.text = wrongLabel.text! + "X"
+                        switch (wrong){
+                            case 1:
+                                wrong1.hidden = false
+                            case 2:
+                                wrong2.hidden = false
+                            default:
+                                wrong3.hidden = false
+                        }
                     }else{
                         performSegueWithIdentifier("ResultScreenSegue", sender: nil)
                     }
