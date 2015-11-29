@@ -383,6 +383,9 @@
                                 <rect key="frame" x="132" y="347" width="57" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Register"/>
+                                <connections>
+                                    <action selector="submitDetails:" destination="V4k-aH-fr1" eventType="touchDown" id="Z8n-jS-Thk"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6Ay-b7-zru">
                                 <rect key="frame" x="33" y="78" width="255" height="21"/>
@@ -456,6 +459,9 @@
                                 <rect key="frame" x="101" y="414" width="119" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Send Reset Email"/>
+                                <connections>
+                                    <action selector="sendEmail:" destination="s1A-tT-apI" eventType="touchDown" id="pSn-K7-GSF"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" id="AYL-Hf-l0e">
                                 <rect key="frame" x="20" y="138" width="280" height="30"/>
@@ -469,11 +475,19 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IdU-wD-ibC">
+                                <rect key="frame" x="33" y="103" width="255" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="emailText" destination="1pI-Ms-ekl" id="buM-or-0Of"/>
+                        <outlet property="errorLabel" destination="IdU-wD-ibC" id="MXe-Vc-Jpu"/>
                         <outlet property="nameText" destination="AYL-Hf-l0e" id="daY-YG-SMj"/>
                         <outlet property="sendBtn" destination="Tkr-oB-3kX" id="INX-kF-p4x"/>
                         <segue destination="BYZ-38-t0r" kind="modal" identifier="ResetToLoginSegue" id="lU5-V1-G5a"/>
@@ -520,13 +534,24 @@
                                 <rect key="frame" x="106" y="412" width="109" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Reset Password"/>
+                                <connections>
+                                    <action selector="submitDetails:" destination="hld-97-Jo8" eventType="touchDown" id="nDN-N0-bFm"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jrx-8Y-DTC">
+                                <rect key="frame" x="33" y="94" width="255" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="changeBtn" destination="wqu-Tf-FeO" id="P8K-an-MKs"/>
                         <outlet property="confirmText" destination="REC-Rl-dMg" id="aJp-m6-cc7"/>
+                        <outlet property="errorLabel" destination="jrx-8Y-DTC" id="7Js-hC-ZZ2"/>
                         <outlet property="newText" destination="zKX-Of-zg2" id="IAn-Bq-wVH"/>
                         <outlet property="oldText" destination="V1f-6N-ecY" id="kRK-5i-Xrd"/>
                         <segue destination="GPi-jn-hbZ" kind="modal" identifier="ChangeToMainSegue" id="LME-6B-LZR"/>
@@ -806,6 +831,6 @@
         <segue reference="lU5-V1-G5a"/>
         <segue reference="3ke-iD-AmF"/>
         <segue reference="g4Y-rX-odO"/>
-        <segue reference="LME-6B-LZR"/>
+        <segue reference="XdN-Gt-hYL"/>
     </inferredMetricsTieBreakers>
 </document>
