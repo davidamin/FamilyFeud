@@ -28,6 +28,10 @@
 		7CBD02781BD589F8001E67CD /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD02771BD589F8001E67CD /* TodayViewController.swift */; };
 		7CBD027B1BD589F8001E67CD /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CBD02791BD589F8001E67CD /* MainInterface.storyboard */; };
 		7CBD027F1BD589F8001E67CD /* FamilyFeudWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7CBD02721BD589F7001E67CD /* FamilyFeudWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7CCDEED01C0B8AC1004ED59E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCDEECF1C0B8AC1004ED59E /* RegisterViewController.swift */; };
+		7CCDEED21C0B8F66004ED59E /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCDEED11C0B8F66004ED59E /* LandingViewController.swift */; };
+		7CCDEED41C0B9460004ED59E /* ChangePassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCDEED31C0B9460004ED59E /* ChangePassViewController.swift */; };
+		7CCDEED61C0B946D004ED59E /* ResetPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCDEED51C0B946D004ED59E /* ResetPassViewController.swift */; };
 		7CE0187F1BF97F7C00B84429 /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7CE0187E1BF97F7C00B84429 /* logo.jpg */; };
 		7CE018821BF9816900B84429 /* correctanswer.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7CE018801BF9816900B84429 /* correctanswer.wav */; };
 		7CE018831BF9816900B84429 /* wronganswer.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7CE018811BF9816900B84429 /* wronganswer.wav */; };
@@ -84,6 +88,10 @@
 		7CBD02771BD589F8001E67CD /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		7CBD027A1BD589F8001E67CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		7CBD027C1BD589F8001E67CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CCDEECF1C0B8AC1004ED59E /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		7CCDEED11C0B8F66004ED59E /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		7CCDEED31C0B9460004ED59E /* ChangePassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePassViewController.swift; sourceTree = "<group>"; };
+		7CCDEED51C0B946D004ED59E /* ResetPassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPassViewController.swift; sourceTree = "<group>"; };
 		7CE0187E1BF97F7C00B84429 /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo.jpg; sourceTree = "<group>"; };
 		7CE018801BF9816900B84429 /* correctanswer.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correctanswer.wav; sourceTree = "<group>"; };
 		7CE018811BF9816900B84429 /* wronganswer.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wronganswer.wav; sourceTree = "<group>"; };
@@ -138,7 +146,9 @@
 				7CE018801BF9816900B84429 /* correctanswer.wav */,
 				7CE018811BF9816900B84429 /* wronganswer.wav */,
 				7CE0187E1BF97F7C00B84429 /* logo.jpg */,
+				7CCDEED11C0B8F66004ED59E /* LandingViewController.swift */,
 				7C86EBC41BF42D7700491B1F /* fastmoney.json */,
+				7CCDEECF1C0B8AC1004ED59E /* RegisterViewController.swift */,
 				7CE543101BEFD129003A8B5E /* questions.json */,
 				7C5C66781BE997530081F2D6 /* icon.png */,
 				7C2F303F1BDDB1AF0020E168 /* theme.mp3 */,
@@ -147,7 +157,9 @@
 				7C2CB90A1BEAFE9900D2EB32 /* ResultViewController.swift */,
 				7CE018841BF997AB00B84429 /* Main.storyboard */,
 				7C4D4ACF1BF7BFA500F846E4 /* GameOverControllerViewController.swift */,
+				7CCDEED51C0B946D004ED59E /* ResetPassViewController.swift */,
 				7C86EBC21BF4179300491B1F /* FastMoneyControllerViewController.swift */,
+				7CCDEED31C0B9460004ED59E /* ChangePassViewController.swift */,
 				7C2CB9081BEAF6D700D2EB32 /* HighScoresViewController.swift */,
 				7C8731D71BD4169E00013E0B /* Assets.xcassets */,
 				7C8731D91BD4169F00013E0B /* LaunchScreen.storyboard */,
@@ -290,14 +302,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C8731D01BD4169E00013E0B /* ViewController.swift in Sources */,
+				7CCDEED01C0B8AC1004ED59E /* RegisterViewController.swift in Sources */,
 				7C263DEA1BE6863300CAA16E /* DataModel.xcdatamodeld in Sources */,
 				7C2CB9091BEAF6D700D2EB32 /* HighScoresViewController.swift in Sources */,
 				7C2CB90B1BEAFE9900D2EB32 /* ResultViewController.swift in Sources */,
+				7CCDEED61C0B946D004ED59E /* ResetPassViewController.swift in Sources */,
 				7C86EBC31BF4179300491B1F /* FastMoneyControllerViewController.swift in Sources */,
 				7C8731D61BD4169E00013E0B /* FamilyFeud.xcdatamodeld in Sources */,
 				7C4D4AD01BF7BFA500F846E4 /* GameOverControllerViewController.swift in Sources */,
 				7C7A30511BDD9EF100B68309 /* QuestionViewController.swift in Sources */,
+				7CCDEED41C0B9460004ED59E /* ChangePassViewController.swift in Sources */,
 				7C8731CE1BD4169E00013E0B /* AppDelegate.swift in Sources */,
+				7CCDEED21C0B8F66004ED59E /* LandingViewController.swift in Sources */,
 				7C263DF81BE68EA800CAA16E /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

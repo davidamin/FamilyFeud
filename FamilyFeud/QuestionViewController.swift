@@ -66,6 +66,8 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //tableView.backgroundView = UIImageView(image: UIImage(named: "taylor-swift"))
+        
         //let path = NSBundle.mainBundle().pathForResource("questions", ofType: "json")
         
         do{
