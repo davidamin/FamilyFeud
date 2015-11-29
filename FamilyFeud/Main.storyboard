@@ -384,12 +384,20 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Register"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6Ay-b7-zru">
+                                <rect key="frame" x="33" y="78" width="255" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="confirmText" destination="s9p-LO-5wQ" id="YsE-mf-pe0"/>
                         <outlet property="emailText" destination="nfa-Zt-8eF" id="QeL-HY-pqF"/>
+                        <outlet property="errorLabel" destination="6Ay-b7-zru" id="kcy-ca-YdU"/>
                         <outlet property="nameText" destination="Bwy-MJ-5cL" id="F4M-TG-jDp"/>
                         <outlet property="passText" destination="B23-DO-uG8" id="QSN-n9-D3s"/>
                         <outlet property="registerBtn" destination="R79-ba-xdI" id="WIG-p1-ugc"/>
@@ -798,6 +806,6 @@
         <segue reference="lU5-V1-G5a"/>
         <segue reference="3ke-iD-AmF"/>
         <segue reference="g4Y-rX-odO"/>
-        <segue reference="XdN-Gt-hYL"/>
+        <segue reference="LME-6B-LZR"/>
     </inferredMetricsTieBreakers>
 </document>
