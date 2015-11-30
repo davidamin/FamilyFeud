@@ -226,7 +226,7 @@ class HighScoresViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let destinationVC = segue.destinationViewController as? ViewController{
+        if let destinationVC = segue.destinationViewController as? LandingViewController{
             destinationVC.userStr = name
         }
     }

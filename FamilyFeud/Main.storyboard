@@ -50,14 +50,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zeb-rP-uH3">
-                                <rect key="frame" x="183" y="259" width="121" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="View High Scores"/>
-                                <connections>
-                                    <action selector="setName:" destination="BYZ-38-t0r" eventType="touchDown" id="rW9-hb-SDk"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZGq-Yo-5AT">
                                 <rect key="frame" x="132" y="327" width="57" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -86,9 +78,6 @@
                         <outlet property="nameLabel" destination="J2w-io-ccH" id="wbV-xT-6vr"/>
                         <outlet property="nameText" destination="QZ5-8t-rdJ" id="WdW-9p-WAn"/>
                         <outlet property="passText" destination="5Un-4Y-3CO" id="Oxr-wM-QlO"/>
-                        <outlet property="scoreBtn" destination="zeb-rP-uH3" id="Duk-UF-4ol"/>
-                        <segue destination="thY-Sf-AzQ" kind="modal" identifier="StartGameSegue" id="g4Y-rX-odO"/>
-                        <segue destination="IcO-a2-iWR" kind="modal" identifier="HighScoreSegue" id="3ke-iD-AmF"/>
                         <segue destination="GPi-jn-hbZ" kind="modal" identifier="LoginToLandingSegue" id="Yw3-Qa-vAS"/>
                     </connections>
                 </viewController>
@@ -105,11 +94,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="AUe-8i-6ia">
-                                <rect key="frame" x="108" y="520" width="105" height="30"/>
+                                <rect key="frame" x="108" y="520" width="106" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <state key="normal" title="Return to Login"/>
+                                <state key="normal" title="Return to Menu"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="modal" identifier="ReturnToMainSegue" id="QoX-Sx-3A5"/>
+                                    <segue destination="GPi-jn-hbZ" kind="modal" id="mvT-L0-QgK"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Scores" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="87Y-5y-HlB">
@@ -352,7 +341,7 @@
                                 <rect key="frame" x="112" y="20" width="97" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" id="Bwy-MJ-5cL">
@@ -391,7 +380,7 @@
                                 <rect key="frame" x="33" y="78" width="255" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -423,13 +412,53 @@
                                 <rect key="frame" x="112" y="14" width="97" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Tm0-Gu-wPh">
+                                <rect key="frame" x="99" y="196" width="121" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="View High Scores"/>
+                                <connections>
+                                    <action selector="highScores:" destination="GPi-jn-hbZ" eventType="touchDown" id="z3e-6J-j13"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Nzu-l7-SoV">
+                                <rect key="frame" x="124" y="105" width="73" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Play Game"/>
+                                <connections>
+                                    <action selector="playGame:" destination="GPi-jn-hbZ" eventType="touchDown" id="qhk-3T-16B"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qId-V6-hbI">
+                                <rect key="frame" x="136" y="249" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="modal" id="0DF-VR-O09"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nV8-fL-z1C">
+                                <rect key="frame" x="98" y="152" width="123" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Change Password"/>
+                                <connections>
+                                    <action selector="changePass:" destination="GPi-jn-hbZ" eventType="touchDown" id="Duw-4w-2gN"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contestant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ofM-cn-w3J">
+                                <rect key="frame" x="0.0" y="67" width="320" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="contestantLabel" destination="ofM-cn-w3J" id="dIW-yt-jxn"/>
                         <segue destination="hld-97-Jo8" kind="modal" identifier="MainToChangePassSegue" id="4hF-r8-nHc"/>
                         <segue destination="BYZ-38-t0r" kind="modal" identifier="MainToLoginSegue" id="NGc-GV-lgD"/>
                         <segue destination="thY-Sf-AzQ" kind="modal" identifier="MainToQuestionSegue" id="y5Q-04-ayf"/>
@@ -452,7 +481,7 @@
                                 <rect key="frame" x="72" y="20" width="177" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Tkr-oB-3kX">
@@ -479,7 +508,7 @@
                                 <rect key="frame" x="33" y="103" width="255" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -509,7 +538,7 @@
                                 <rect key="frame" x="60" y="20" width="201" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Password" textAlignment="natural" minimumFontSize="17" id="zKX-Of-zg2">
@@ -542,7 +571,7 @@
                                 <rect key="frame" x="33" y="94" width="255" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -805,7 +834,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Return to Login"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="modal" identifier="RestartSegue" id="GmP-t8-ZHH"/>
+                                    <segue destination="GPi-jn-hbZ" kind="modal" id="h18-UQ-KzC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -828,9 +857,8 @@
         <image name="wrong.png" width="381" height="478"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lU5-V1-G5a"/>
-        <segue reference="3ke-iD-AmF"/>
-        <segue reference="g4Y-rX-odO"/>
-        <segue reference="XdN-Gt-hYL"/>
+        <segue reference="y5Q-04-ayf"/>
+        <segue reference="h18-UQ-KzC"/>
+        <segue reference="NGc-GV-lgD"/>
     </inferredMetricsTieBreakers>
 </document>

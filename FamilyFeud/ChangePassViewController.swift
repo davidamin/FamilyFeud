@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChangePassViewController: UIViewController {
+class ChangePassViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var errorLabel: UILabel!
     
@@ -24,7 +24,9 @@ class ChangePassViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        oldText.delegate = self
+        newText.delegate = self
+        confirmText.delegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -111,5 +113,15 @@ class ChangePassViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    func textFieldShouldReturn(textField: UITextField) -> Bool {   //delegate method
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let destinationVC = segue.destinationViewController as? LandingViewController{
+            destinationVC.userStr = username
+        }
+    }
 
 }

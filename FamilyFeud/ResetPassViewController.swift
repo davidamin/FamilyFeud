@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ResetPassViewController: UIViewController {
+class ResetPassViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var errorLabel: UILabel!
     
@@ -20,7 +20,8 @@ class ResetPassViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        nameText.delegate = self
+        emailText.delegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -102,5 +103,9 @@ class ResetPassViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    func textFieldShouldReturn(textField: UITextField) -> Bool {   //delegate method
+        textField.resignFirstResponder()
+        return true
+    }
 
 }

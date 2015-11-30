@@ -41,6 +41,7 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         nameText.delegate = self
+        passText.delegate = self
         nameBtn.addTarget(self, action: "setName:", forControlEvents: UIControlEvents.TouchUpInside)
         
         nameText.text = userStr
@@ -199,7 +200,7 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
     
     @IBAction func setName(sender: UIButton){
         
-        if(sender.tag == 0){
+        /*if(sender.tag == 0){
         if(logged_in){
             self.performSegueWithIdentifier("StartGameSegue", sender: nil)
             return
@@ -209,8 +210,8 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
                 self.performSegueWithIdentifier("HighScoreSegue", sender: nil)
                 return
             }
-        }
-        let postEndpoint: String = "http://ec2-54-174-16-239.compute-1.amazonaws.com/add_user/"
+        }*/
+        let postEndpoint: String = "http://ec2-54-174-16-239.compute-1.amazonaws.com/login/"
         guard let url = NSURL(string: postEndpoint) else {
             print("Error: cannot create URL")
             return
@@ -219,7 +220,6 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         let urlRequest = NSMutableURLRequest(URL: url)
         urlRequest.HTTPMethod = "POST"
         
-        let newPost: NSDictionary = ["username": "ghdfsughfhagvijek", "password": "password"]
         do {
             let postString = "username=" + nameText.text! + "&password=" + passText.text!
             urlRequest.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
@@ -260,13 +260,14 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
             if let valid = post["ok"] as? Bool{
                 if(valid){
                 dispatch_async(dispatch_get_main_queue()) {
-                    self.nameLabel.text = "Logged In!"
-                    self.nameBtn.setTitle("Play!", forState: UIControlState.Normal)
+                    //self.nameLabel.text = "Logged In!"
+                    //self.nameBtn.setTitle("Play!", forState: UIControlState.Normal)
+                    self.performSegueWithIdentifier("LoginToLandingSegue", sender: nil)
                 }
                 self.logged_in = true
                 }else{
                     dispatch_async(dispatch_get_main_queue()) {
-                        self.nameLabel.text = "Login failed."
+                        self.nameLabel.text = post["error"] as? String
                     }
                 }
                 //self.performSegueWithIdentifier("StartGameSegue", sender: nil)
@@ -322,11 +323,8 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
             nameText.resignFirstResponder()
-            if let destinationVC = segue.destinationViewController as? QuestionViewController{
+            if let destinationVC = segue.destinationViewController as? LandingViewController{
                 destinationVC.userStr = nameText.text!
-            }
-            if let destinationVC = segue.destinationViewController as? HighScoresViewController{
-                destinationVC.name = nameText.text!
             }
     }
 
