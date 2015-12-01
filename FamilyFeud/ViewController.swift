@@ -281,6 +281,7 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         
         
         nameText.resignFirstResponder()
+        passText.resignFirstResponder()
         /*let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         
         //Let's check the database for a user with the name we just input

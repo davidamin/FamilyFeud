@@ -17,6 +17,8 @@ class ResetPassViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailText: UITextField!
     
     @IBOutlet weak var sendBtn: UIButton!
+    
+    @IBOutlet weak var retBtn: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +33,8 @@ class ResetPassViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func sendEmail(sender: UIButton){
+        nameText.resignFirstResponder()
+        emailText.resignFirstResponder()
         
         let postEndpoint: String = "http://ec2-54-174-16-239.compute-1.amazonaws.com/send_email/"
         guard let url = NSURL(string: postEndpoint) else {
@@ -93,6 +97,10 @@ class ResetPassViewController: UIViewController, UITextFieldDelegate {
         })
         task.resume()
         
+    }
+    
+    @IBAction func returnToMain(sender: UIButton){
+        self.performSegueWithIdentifier("ResetToLoginSegue", sender: nil)
     }
     /*
     // MARK: - Navigation

@@ -24,7 +24,7 @@ class LandingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        contestantLabel.text = userStr
+        contestantLabel.text = "Hi " + userStr + "!"
         // Do any additional setup after loading the view.
     }
 

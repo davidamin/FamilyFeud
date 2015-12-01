@@ -37,6 +37,11 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     
 
     @IBAction func submitDetails(sender: UIButton){
+        nameText.resignFirstResponder()
+        emailText.resignFirstResponder()
+        passText.resignFirstResponder()
+        confirmText.resignFirstResponder()
+        
         if(passText.text! != confirmText.text!){
             errorLabel.text = "Passwords don't match"
             return

@@ -20,6 +20,8 @@ class ChangePassViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var changeBtn: UIButton!
     
+    @IBOutlet weak var retBtn: UIButton!
+    
     var username : String = ""
 
     override func viewDidLoad() {
@@ -36,6 +38,10 @@ class ChangePassViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func submitDetails(sender: UIButton){
+        oldText.resignFirstResponder()
+        newText.resignFirstResponder()
+        confirmText.resignFirstResponder()
+        
         if(newText.text! != confirmText.text!){
             errorLabel.text = "Passwords don't match"
             return
@@ -113,6 +119,10 @@ class ChangePassViewController: UIViewController, UITextFieldDelegate {
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func returnToMain(sender: UIButton){
+        self.performSegueWithIdentifier("ChangeToMainSegue", sender: nil)
+    }
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {   //delegate method
         textField.resignFirstResponder()
         return true
