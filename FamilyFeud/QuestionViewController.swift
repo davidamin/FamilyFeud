@@ -200,7 +200,7 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
             
         }
         
-        contestantLabel.text = "Contestant: " + userStr
+        contestantLabel.text = "Round: " + String(round + 1) + " of 3"
         totalLabel.text = "Total:" + String(game)
         //wrongLabel.text = ""
         
