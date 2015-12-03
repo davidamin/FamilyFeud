@@ -36,6 +36,12 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         gameLabel.text = String(game)
         lifeLabel.text = String(life)
         
+        lifeLabel.sizeToFit()
+        scoreLabel.sizeToFit()
+        gameLabel.sizeToFit()
+        //lifeLabel.layer.borderWidth = 3.0
+        //lifeLabel.layer.borderColor = UIColor.greenColor().CGColor
+        
         if(round > 2){
             nextBtn.setTitle("Fast Money!", forState: UIControlState.Normal)
         }

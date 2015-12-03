@@ -30,6 +30,8 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var scoreLabel: UILabel!
     
+    @IBOutlet weak var rightLabel: UILabel!
+    
     //@IBOutlet weak var wrongLabel: UILabel!
     
     @IBOutlet weak var wrong1 : UIImageView!
@@ -57,6 +59,7 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
     var value = ""
     var score = 0
     var wrong = 0
+    var rights = 0
     var game = 0
     var lifetime = 0
     var round = 0
@@ -134,11 +137,13 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
                     self.answers.append(Ans(n:tempAns!,s:Int(tempScore!)!))
                     if(Int(tempScore!)! > 0){
                         self.right.append(Ans(n:tempAns!,s:Int(tempScore!)!))
+                        self.rights += 1
                     }
                 }
                 
                 dispatch_async(dispatch_get_main_queue()) {
                     self.questionLabel.text = question
+                    self.rightLabel.text = "Remaining: " + String(self.rights)
                     self.answers = (GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(self.answers) as? [Ans])!
                     self.pickerView.reloadAllComponents()
                 }
@@ -202,26 +207,8 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
         
         contestantLabel.text = "Round: " + String(round + 1) + " of 3"
         totalLabel.text = "Total:" + String(game)
-        //wrongLabel.text = ""
-        
-        /*let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-        let fetchRequest = NSFetchRequest(entityName: "User")
-        let predicate = NSPredicate(format: "name == %@", userStr)
-        
-        fetchRequest.predicate = predicate
-        do {
-            let results =
-            try managedObjectContext.executeFetchRequest(fetchRequest) as! [User]
-            if(results.count > 0){
-                lifetime = Int(results[0].highScore)
-            }
-        } catch let error as NSError {
-            print("Could not fetch \(error), \(error.userInfo)")
-        }*/
         
         self.answerTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        //value = answers[0].name
-        
         
         let rightSound = NSBundle.mainBundle().URLForResource("correctanswer", withExtension: "wav")
         do{
@@ -242,7 +229,6 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func tableView(answerTable: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -260,7 +246,6 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
         cell!.backgroundColor = UIColor.blackColor()
         cell!.textLabel?.textColor = UIColor.whiteColor()
         cell!.detailTextLabel?.textColor = UIColor.whiteColor()
-        //cell!.detailTextLabel?.backgroundColor = UIColor.blueColor()
         return cell!
     }
     
@@ -311,6 +296,8 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
                     scoreLabel.text = String(score)
                     totalLabel.text = "Total:"  + String(game)
                     rightMus.play()
+                    self.rights -= 1
+                    rightLabel.text = "Remaining: " + String(self.rights)
                 }else{
                     wrongMus.play()
                     if(wrong < 2){
