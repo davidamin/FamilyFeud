@@ -36,6 +36,10 @@ class ResetPassViewController: UIViewController, UITextFieldDelegate {
         nameText.resignFirstResponder()
         emailText.resignFirstResponder()
         
+        if(!isValidEmail(emailText.text!)){
+            return
+        }
+        
         let postEndpoint: String = "http://ec2-54-174-16-239.compute-1.amazonaws.com/send_email/"
         guard let url = NSURL(string: postEndpoint) else {
             print("Error: cannot create URL")
@@ -97,6 +101,18 @@ class ResetPassViewController: UIViewController, UITextFieldDelegate {
         })
         task.resume()
         
+    }
+    
+    func isValidEmail(testStr:String) -> Bool {
+        let email = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", email)
+        if (emailTest.evaluateWithObject(testStr)){
+            return true
+        }else{
+            self.errorLabel.text = "Invalid Email Format"
+            return false
+        }
     }
     
     @IBAction func returnToMain(sender: UIButton){
