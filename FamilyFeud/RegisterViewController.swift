@@ -20,6 +20,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var confirmText: UITextField!
     
     @IBOutlet weak var registerBtn: UIButton!
+    
+    @IBOutlet weak var privacyBtn: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -124,6 +126,10 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             self.errorLabel.text = "Invalid Email Format"
             return false
         }
+    }
+    
+    @IBAction func openWeb(sender: AnyObject) {
+        UIApplication.sharedApplication().openURL(NSURL(string: "http://ec2-54-174-16-239.compute-1.amazonaws.com/privacy/")!)
     }
     /*
     // MARK: - Navigation

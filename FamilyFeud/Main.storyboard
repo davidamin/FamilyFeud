@@ -378,7 +378,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="R79-ba-xdI">
-                                <rect key="frame" x="132" y="262" width="57" height="30"/>
+                                <rect key="frame" x="75" y="262" width="57" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Register"/>
                                 <connections>
@@ -398,6 +398,14 @@
                                 <state key="normal" title="Return to Login"/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="modal" id="z6i-HV-7Xm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ost-af-WJb">
+                                <rect key="frame" x="193" y="262" width="51" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Privacy"/>
+                                <connections>
+                                    <action selector="openWeb:" destination="V4k-aH-fr1" eventType="touchDown" id="CLN-us-cB3"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -893,7 +901,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lqW-fh-dZt"/>
-        <segue reference="lU5-V1-G5a"/>
-        <segue reference="LME-6B-LZR"/>
+        <segue reference="z6i-HV-7Xm"/>
+        <segue reference="XdN-Gt-hYL"/>
     </inferredMetricsTieBreakers>
 </document>
