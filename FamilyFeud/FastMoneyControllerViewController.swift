@@ -141,23 +141,6 @@ class FastMoneyControllerViewController: UIViewController, UITableViewDelegate, 
     }
     
     func generateQuestion(){
-        self.answers.removeAll()
-        /*var randIndex = Int(arc4random_uniform(UInt32(jsonDict.count)))
-        while(used.contains(randIndex)){
-            randIndex = Int(arc4random_uniform(UInt32(jsonDict.count)))
-        }
-        let randQuestion = jsonDict[randIndex]
-        used.append(randIndex)
-        questionLabel.text = randQuestion["question"] as? String
-        let ansArr = randQuestion["answers"] as? NSArray
-        
-        for a in ansArr!{
-            var tempAns = a["answer"] as? String
-            var tempScore = a["score"] as? String
-            self.answers.append(Ans(n:tempAns!,s:Int(tempScore!)!))
-        }
-        //self.answers = (GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(self.answers) as? [Ans])!
-        self.pickerView.reloadAllComponents()*/
         
         let postEndpoint: String = "http://ec2-54-174-16-239.compute-1.amazonaws.com/get_fast"
         guard let url = NSURL(string: postEndpoint) else {
@@ -193,6 +176,7 @@ class FastMoneyControllerViewController: UIViewController, UITableViewDelegate, 
             let question = post["question"] as? String
             let ansArr = post["answers"] as? NSArray
             
+            self.answers.removeAll()
             for a in ansArr!{
                 var tempAns = a["answer"] as? String
                 var tempScore = a["score"] as? String
@@ -206,6 +190,7 @@ class FastMoneyControllerViewController: UIViewController, UITableViewDelegate, 
             }
         })
         task.resume()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -252,11 +237,13 @@ class FastMoneyControllerViewController: UIViewController, UITableViewDelegate, 
         //value = answers[row].name
     }
     @IBAction func submitAnswer(sender: UIButton){
+        
         if(questionIndex < 5){
         rightMus.play()
-        
+            
         var this_row = self.pickerView.selectedRowInComponent(0)
         value = answers[this_row].name
+
         let this_ans = answers.filter{ $0.name == value}.first
             
         let this_score = this_ans?.score
@@ -267,7 +254,7 @@ class FastMoneyControllerViewController: UIViewController, UITableViewDelegate, 
 
         prev.append(Ans(n:value, s:this_score!))
             
-        answers = answers.filter{$0.name != value}
+        //answers = answers.filter{$0.name != value}
             
         //self.pickerView.reloadAllComponents()
             
