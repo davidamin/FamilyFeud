@@ -149,7 +149,7 @@ class HighScoresViewController: UIViewController, UITableViewDelegate, UITableVi
                     else{
                         average = Float(Float((post["lifetime"] as? Int)!) / Float((post["played"] as? Int)!))
                     }
-                    self.averageLabel.text = String(average)
+                    self.averageLabel.text = String(format: "%.1f", average)
                 }
                 //print(self.lifetime)
                 //self.performSegueWithIdentifier("StartGameSegue", sender: nil)

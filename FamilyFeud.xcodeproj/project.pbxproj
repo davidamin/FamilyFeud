@@ -14,6 +14,7 @@
 		7C2CB90B1BEAFE9900D2EB32 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2CB90A1BEAFE9900D2EB32 /* ResultViewController.swift */; };
 		7C2F30401BDDB1AF0020E168 /* theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7C2F303F1BDDB1AF0020E168 /* theme.mp3 */; };
 		7C4D4AD01BF7BFA500F846E4 /* GameOverControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D4ACF1BF7BFA500F846E4 /* GameOverControllerViewController.swift */; };
+		7C52DBD31C115212002B9908 /* empty.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C52DBD21C115212002B9908 /* empty.png */; };
 		7C5C66791BE997530081F2D6 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C5C66781BE997530081F2D6 /* icon.png */; };
 		7C7A30511BDD9EF100B68309 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7A30501BDD9EF100B68309 /* QuestionViewController.swift */; };
 		7C86EBC31BF4179300491B1F /* FastMoneyControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C86EBC21BF4179300491B1F /* FastMoneyControllerViewController.swift */; };
@@ -71,6 +72,7 @@
 		7C2CB90A1BEAFE9900D2EB32 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		7C2F303F1BDDB1AF0020E168 /* theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = theme.mp3; sourceTree = "<group>"; };
 		7C4D4ACF1BF7BFA500F846E4 /* GameOverControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverControllerViewController.swift; sourceTree = "<group>"; };
+		7C52DBD21C115212002B9908 /* empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = empty.png; sourceTree = "<group>"; };
 		7C5C66781BE997530081F2D6 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = SOURCE_ROOT; };
 		7C7A30501BDD9EF100B68309 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		7C86EBC21BF4179300491B1F /* FastMoneyControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FastMoneyControllerViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				7CE018811BF9816900B84429 /* wronganswer.wav */,
 				7CE0187E1BF97F7C00B84429 /* logo.jpg */,
 				7CCDEED11C0B8F66004ED59E /* LandingViewController.swift */,
+				7C52DBD21C115212002B9908 /* empty.png */,
 				7C86EBC41BF42D7700491B1F /* fastmoney.json */,
 				7CCDEECF1C0B8AC1004ED59E /* RegisterViewController.swift */,
 				7CE543101BEFD129003A8B5E /* questions.json */,
@@ -283,6 +286,7 @@
 				7CE543111BEFD129003A8B5E /* questions.json in Resources */,
 				7C2F30401BDDB1AF0020E168 /* theme.mp3 in Resources */,
 				7C94F3A31C0B85BB00B82179 /* wrong.png in Resources */,
+				7C52DBD31C115212002B9908 /* empty.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

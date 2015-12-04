@@ -305,11 +305,11 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
                         //wrongLabel.text = wrongLabel.text! + "X"
                         switch (wrong){
                             case 1:
-                                wrong1.hidden = false
+                                wrong1.image = UIImage(named: "wrong")!
                             case 2:
-                                wrong2.hidden = false
+                                wrong2.image = UIImage(named: "wrong")!
                             default:
-                                wrong3.hidden = false
+                                wrong3.image = UIImage(named: "wrong")!
                         }
                     }else{
                         performSegueWithIdentifier("ResultScreenSegue", sender: nil)
