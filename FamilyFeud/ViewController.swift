@@ -11,6 +11,8 @@ import AVFoundation
 import CoreData
 import CoreLocation
 
+var bahDahDahDaah = AVAudioPlayer()
+
 class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate  {
 
     @IBOutlet weak var nameLabel: UILabel!
@@ -28,8 +30,6 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
     var userStr = ""
     
     var newPlayer = true
-    
-    var bahDahDahDaah = AVAudioPlayer()
     
     var username = NSManagedObject?()
     
@@ -91,8 +91,11 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         }catch{
             
         }
+        bahDahDahDaah.stop()
+        //bahDahDahDaah.pause()
         bahDahDahDaah.numberOfLoops = -1
         bahDahDahDaah.volume = 0.5
+        bahDahDahDaah.prepareToPlay()
         bahDahDahDaah.play()
         
         
